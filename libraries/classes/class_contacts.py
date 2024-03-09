@@ -2,6 +2,21 @@ from datetime import datetime
 from collections import UserList
 
 
+def validation_tracker(func):
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except ValueError:
+            if func.__name__ == 'phones':
+                print('Entry has invalid phone number(s)')
+            if func.__name__ == 'email':
+                print('Entry has invalid e-mail')
+            if func.__name__ == 'birthday':
+                print('Entry has invalid birthday date')
+
+    return wrapper
+
+
 class Contact:
     def __init__(self, name):
         self.__name = ''
@@ -25,11 +40,13 @@ class Contact:
         return self.__phones
 
     @phones.setter
+    @validation_tracker
     def phones(self, new_value):
         def reformat_phone(value):
-            pattern = ('(', ')', '+', '38')
+            pattern = ('(', ')', '+', '38', '-')
             for check in pattern:
                 value = value.replace(check, '')
+                value = value.strip()
             return value
 
         def validate_phone(value):
@@ -41,34 +58,42 @@ class Contact:
         if isinstance(new_value, list):
             count = 0
             valid_list = []
+            invalid = False
             for phone in new_value:
                 count += 1
                 phone = reformat_phone(phone)
                 if validate_phone(phone):
                     valid_list.append(phone)
                 else:
-                    print(f'phone no {count} - not valid')
+                    invalid = True
+                    # print(f'phone no {count} - not valid')
             if len(valid_list) > 0:
                 self.__phones = valid_list
+            if invalid == 1:
+                raise ValueError("Invalid phone number")
         elif isinstance(new_value, str):
             new_value = reformat_phone(new_value)
             if validate_phone(new_value):
                 self.__phones = [new_value]
             else:
-                print('invalid phone')
+                raise ValueError("Invalid phone number")
+                # print('invalid phone')
         else:
-            print('invalid phone')
+            raise ValueError("Invalid phone number")
+            # print('invalid phone')
 
     @property
     def email(self):
         return self.__email
 
     @email.setter
+    @validation_tracker
     def email(self, new_value):
         if isinstance(new_value, str) and '@' in new_value and '.' in new_value:
             self.__email = new_value
         else:
-            print('invalid e-mail')
+            raise ValueError("Invalid email address")
+            # print('invalid e-mail')
 
     @property
     def address(self):
@@ -83,11 +108,9 @@ class Contact:
         return self.__birthday
 
     @birthday.setter
+    @validation_tracker
     def birthday(self, new_value):
-        try:
-            self.__birthday = datetime.strptime(new_value, '%d-%m-%Y')
-        except ValueError:
-            print('Invalid date')
+        self.__birthday = datetime.strptime(new_value, '%d-%m-%Y')
 
     @property
     def remark(self):
@@ -146,5 +169,3 @@ class ContactBook(UserList):
             if contact.name == name:
                 return contact
         return False
-
-

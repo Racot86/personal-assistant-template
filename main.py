@@ -104,6 +104,12 @@ def main():
     while True:
         contacts = ContactBook(load_contacts())
 
+        c = Contact('you')
+        c.phones = ['0970279618', '12345678']
+        c.birthday = '30-12-198'
+        print(c)
+        contacts.add_contact(c)
+
         cmd = parse_cmd(prompt('Enter command> '))
         print(move_ln_up, end='')  # moves cursor to beginning of prev line
         print(Settings.bg_color + ' ' * 100, end='\r')  # clears 100 chars of the line
