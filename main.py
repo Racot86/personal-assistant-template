@@ -12,15 +12,19 @@ from libraries.functions.contacts.c_create_cmd import c_create_cmd
 from libraries.functions.contacts.c_change_cmd import c_change_cmd
 from libraries.functions.contacts.c_show_cmd import c_show_cmd
 from libraries.functions.contacts.c_delete_cmd import c_delete_cmd
+from libraries.functions.contacts.c_search_cmd import c_search_cmd
 # importing notes functions
 from libraries.functions.notes.n_create_cmd import n_create_cmd
 from libraries.functions.notes.n_change_cmd import n_change_cmd
 from libraries.functions.notes.n_show_cmd import n_show_cmd
 from libraries.functions.notes.n_delete_cmd import n_delete_cmd
+from libraries.functions.notes.n_search_cmd import n_search_cmd
+from libraries.functions.notes.n_filter_cmd import n_filter_cmd
 # importing others functions
 from libraries.functions.others.o_hello_cmd import o_hello_cmd
 from libraries.functions.others.o_help_cmd import o_help_cmd
 from libraries.functions.others.o_war_cmd import o_war_cmd
+from libraries.functions.others.o_about_cmd import o_about_cmd
 # import tools
 from libraries.tools.save_contacts import save_contacts
 from libraries.tools.load_contacts import load_contacts
@@ -50,6 +54,8 @@ def process_contacts_command(cmd):
                 c_show_cmd(cmd)
             case 'delete':
                 c_delete_cmd(cmd)
+            case 'search':
+                c_search_cmd(cmd)
             case _:
                 print('ERROR. Wrong number of parameters')
 
@@ -70,6 +76,10 @@ def process_notes_command(cmd):
                 n_show_cmd(cmd)
             case 'delete':
                 n_delete_cmd(cmd)
+            case 'search':
+                n_search_cmd(cmd)
+            case 'filter':
+                n_filter_cmd(cmd)
             case _:
                 print('ERROR. Wrong number of parameters')
     else:
@@ -84,6 +94,8 @@ def process_others_command(cmd):
             o_war_cmd(cmd)
         case 'help':
             o_help_cmd(cmd)
+        case 'about':
+            o_about_cmd()
         case _:
             print('Command not recognized')
 
