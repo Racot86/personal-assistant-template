@@ -14,7 +14,7 @@
    - notes delete <note name>
    - notes search
    - notes filter by tug
-   - hello - sum funny greating
+   - hello - some funny greating
    - about - app version and creator group
    - help - command descriptions
    - war statistics today - additional
