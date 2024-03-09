@@ -141,3 +141,10 @@ class ContactBook(UserList):
                 return True
         return False
 
+    def get_contact(self, name: str):
+        for contact in self.data:
+            if contact.name == name:
+                return contact
+        return False
+
+

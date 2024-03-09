@@ -21,6 +21,9 @@ from libraries.functions.notes.n_delete_cmd import n_delete_cmd
 from libraries.functions.others.o_hello_cmd import o_hello_cmd
 from libraries.functions.others.o_help_cmd import o_help_cmd
 from libraries.functions.others.o_war_cmd import o_war_cmd
+# import tools
+from libraries.tools.save_contacts import save_contacts
+from libraries.tools.load_contacts import load_contacts
 
 # defining variables
 move_ln_up = '\033[F'
@@ -87,6 +90,7 @@ def process_others_command(cmd):
 
 def main():
     while True:
+        contacts = ContactBook(load_contacts())
 
         cmd = parse_cmd(prompt('Enter command> '))
         print(move_ln_up, end='')  # moves cursor to beginning of prev line
