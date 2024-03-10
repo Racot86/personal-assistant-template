@@ -3,6 +3,7 @@ from prompt_toolkit import prompt
 from datetime import datetime
 from settings import Settings
 from colorama import Fore
+import os
 
 #  import classes
 from libraries.classes.class_contacts import Contact
@@ -102,17 +103,13 @@ def process_others_command(cmd):
 
 def main():
     while True:
+        term_width = os.get_terminal_size().columns
+        term_height = os.get_terminal_size().lines
         contacts = ContactBook(load_contacts())
-
-        c = Contact('you')
-        c.phones = ['0970279618', '12345678']
-        c.birthday = '30-12-198'
-        print(c)
-        contacts.add_contact(c)
-
-        cmd = parse_cmd(prompt('Enter command> '))
+        print(f'terminal dimensions: {term_width}x{term_height}')
+        cmd = parse_cmd(prompt('Command, my Lord> '))
         print(move_ln_up, end='')  # moves cursor to beginning of prev line
-        print(Settings.bg_color + ' ' * 100, end='\r')  # clears 100 chars of the line
+        print(Settings.bg_color + ' ' * term_width, end='\r')  # clears line and paints it with background color
         print(
             f'  {Settings.bg_color}{Settings.time_color}{datetime.now().strftime('%d/%m %H:%M')}{Settings.end_color}    {' '.join(cmd)}')
         print(Settings.end_all, end='')

@@ -66,7 +66,6 @@ class Contact:
                     valid_list.append(phone)
                 else:
                     invalid = True
-                    # print(f'phone no {count} - not valid')
             if len(valid_list) > 0:
                 self.__phones = valid_list
             if invalid == 1:
@@ -77,10 +76,8 @@ class Contact:
                 self.__phones = [new_value]
             else:
                 raise ValueError("Invalid phone number")
-                # print('invalid phone')
         else:
             raise ValueError("Invalid phone number")
-            # print('invalid phone')
 
     @property
     def email(self):
@@ -93,7 +90,6 @@ class Contact:
             self.__email = new_value
         else:
             raise ValueError("Invalid email address")
-            # print('invalid e-mail')
 
     @property
     def address(self):
