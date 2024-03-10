@@ -7,7 +7,7 @@ import os
 
 #  import classes
 from libraries.classes.class_Contact import Contact
-from libraries.classes.class_Contact import ContactBook
+from libraries.classes.class_ContactBook import ContactBook
 # importing contacts functions
 from libraries.functions.contacts.c_create_cmd import c_create_cmd
 from libraries.functions.contacts.c_change_cmd import c_change_cmd

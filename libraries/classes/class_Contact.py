@@ -1,7 +1,6 @@
 from datetime import datetime
 
 
-
 def validation_tracker(func):
     def wrapper(*args, **kwargs):
         try:
@@ -118,4 +117,3 @@ class Contact:
 
     def __str__(self):
         return f'name: {self.name} <{self.remark}>\ne-mail: {self.email}\nphones: {', '.join(self.phones)}\naddress: {self.address}\nbirthday: {self.birthday}'
-

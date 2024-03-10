@@ -14,9 +14,9 @@ class ContactBook(UserList):
         else:
             return True
 
-    def add_contact(self, new_value: Contact):
-        if isinstance(new_value, Contact) and not self.contact_exists(new_value):
-            self.data.append(new_value)
+    def add_contact(self, value: Contact):
+        if isinstance(value, Contact) and not self.contact_exists(value):
+            self.data.append(value)
             return True
         else:
             return False
