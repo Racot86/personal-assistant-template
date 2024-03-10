@@ -16,6 +16,27 @@ def validation_tracker(func):
     return wrapper
 
 
+class Field:
+    def __init__(self, value):
+        self.value = value
+
+
+class Name(Field):
+    def __init__(self, value):
+        super().__init__(value)
+
+    def __str__(self):
+        return self.value
+
+
+class Phones(Field):
+    def __init__(self, value):
+        super().__init__(value)
+
+    def __str__(self):
+        return self.value
+
+
 class Contact:
     def __init__(self, name):
         self.__name = ''

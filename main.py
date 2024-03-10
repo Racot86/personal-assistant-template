@@ -100,6 +100,11 @@ def process_others_command(cmd):
         case _:
             print('Command not recognized')
 
+from libraries.classes.class_Contact import Name
+
+n = Name('Hi')
+
+print(n)
 
 def main():
     while True:
