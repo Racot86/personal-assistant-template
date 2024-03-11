@@ -1,4 +1,5 @@
 from datetime import datetime
+from libraries.classes.class_Field import Field
 
 
 def validation_tracker(func):
@@ -16,11 +17,6 @@ def validation_tracker(func):
     return wrapper
 
 
-class Field:
-    def __init__(self, value):
-        self.value = value
-
-
 class Name(Field):
     def __init__(self, value):
         super().__init__(value)
@@ -33,15 +29,49 @@ class Phones(Field):
     def __init__(self, value):
         super().__init__(value)
 
+    def __reformat_phone(self, value):
+        pattern = ('(', ')', '+', '38', '-')
+        for check in pattern:
+            value = value.replace(check, '')
+            value = value.strip()
+        return value
+
+    def __validate_phone(self, value):
+        if value.isdigit() and len(value) == 10:
+            return True
+        else:
+            return False
+
+
     def __str__(self):
         return self.value
+
+
+class Email(Field):
+    def __init__(self,value):
+        super().__init__(value)
+
+
+class Birthday(Field):
+    def __init__(self, value):
+        super().__init__(value)
+
+
+class Address(Field):
+    def __init__(self, value):
+        super().__init__(value)
+
+
+class Remark(Field):
+    def __init__(self, value):
+        super().__init__(value)
 
 
 class Contact:
     def __init__(self, name):
         self.__name = ''
         self.name = name
-        self.__phones = []
+        self.__phones = ''
         self.__email = ''
         self.__address = ''
         self.__birthday = ''
@@ -53,7 +83,7 @@ class Contact:
 
     @name.setter
     def name(self, new_value):
-        self.__name = new_value
+        self.__name = Name(new_value)
 
     @property
     def phones(self):
@@ -62,18 +92,8 @@ class Contact:
     @phones.setter
     @validation_tracker
     def phones(self, new_value):
-        def reformat_phone(value):
-            pattern = ('(', ')', '+', '38', '-')
-            for check in pattern:
-                value = value.replace(check, '')
-                value = value.strip()
-            return value
+        self.__phones = Phones(new_value)
 
-        def validate_phone(value):
-            if value.isdigit() and len(value) == 10:
-                return True
-            else:
-                return False
 
         if isinstance(new_value, list):
             count = 0
