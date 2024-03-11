@@ -160,11 +160,14 @@ class Contact:
 
     @property
     def address(self):
-        return self.__address
+        if self.__address != '':
+            return self.__address.value
+        else:
+            return self.__address
 
     @address.setter
     def address(self, new_value):
-        self.__address = new_value
+        self.__address = Address(new_value)
 
     @property
     def birthday(self):
@@ -179,11 +182,14 @@ class Contact:
 
     @property
     def remark(self):
-        return self.__remark
+        if self.__remark != '':
+            return self.__remark
+        else:
+            return self.__remark
 
     @remark.setter
     def remark(self, new_value):
-        self.__remark = new_value
+        self.__remark = Remark(new_value)
 
     def __str__(self):
         return f'name: {self.name} <{self.remark}>\ne-mail: {self.email}\nphones: {', '.join(self.phones)}\naddress: {self.address}\nbirthday: {self.birthday}'
