@@ -124,7 +124,7 @@ class Contact:
     def __init__(self, name):
         self.__name = ''
         self.name = name
-        self.__phones = ''
+        self.__phones = []
         self.__email = ''
         self.__address = ''
         self.__birthday = ''
