@@ -6,6 +6,8 @@ from colorama import Fore
 import os
 
 #  import classes
+from src.classes.class_Note import Note
+from src.classes.class_NoteBook import NoteBook
 from src.classes.class_Contact import Contact
 from src.classes.class_ContactBook import ContactBook
 # importing contacts controller function
@@ -17,6 +19,8 @@ from src.functions.command_controllers.process_others_commans import process_oth
 # importing tools
 from src.tools.save_contacts import save_contacts
 from src.tools.load_contacts import load_contacts
+from src.tools.save_notes import save_notes
+from src.tools.load_notes import load_notes
 
 # defining variables
 move_ln_up = '\033[F'
@@ -34,7 +38,7 @@ def main():
         term_width = os.get_terminal_size().columns
         term_height = os.get_terminal_size().lines
         contacts = ContactBook(load_contacts())
-
+        notes = NoteBook(load_notes())
         print(f'terminal window size: {term_width}x{term_height}')
         cmd = parse_cmd(prompt('Command, my Lord> '))
         print(move_ln_up, end='')  # moves cursor to beginning of prev line
