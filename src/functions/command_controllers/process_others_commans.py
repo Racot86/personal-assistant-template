@@ -1,7 +1,7 @@
-from libraries.functions.others.o_hello_cmd import o_hello_cmd
-from libraries.functions.others.o_help_cmd import o_help_cmd
-from libraries.functions.others.o_war_cmd import o_war_cmd
-from libraries.functions.others.o_about_cmd import o_about_cmd
+from src.functions.others.o_hello_cmd import o_hello_cmd
+from src.functions.others.o_help_cmd import o_help_cmd
+from src.functions.others.o_war_cmd import o_war_cmd
+from src.functions.others.o_about_cmd import o_about_cmd
 
 
 def process_others_command(cmd):

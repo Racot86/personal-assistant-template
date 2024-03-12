@@ -1,9 +1,9 @@
-from libraries.functions.notes.n_create_cmd import n_create_cmd
-from libraries.functions.notes.n_change_cmd import n_change_cmd
-from libraries.functions.notes.n_show_cmd import n_show_cmd
-from libraries.functions.notes.n_delete_cmd import n_delete_cmd
-from libraries.functions.notes.n_search_cmd import n_search_cmd
-from libraries.functions.notes.n_filter_cmd import n_filter_cmd
+from src.functions.notes.n_create_cmd import n_create_cmd
+from src.functions.notes.n_change_cmd import n_change_cmd
+from src.functions.notes.n_show_cmd import n_show_cmd
+from src.functions.notes.n_delete_cmd import n_delete_cmd
+from src.functions.notes.n_search_cmd import n_search_cmd
+from src.functions.notes.n_filter_cmd import n_filter_cmd
 
 
 def process_notes_command(cmd):

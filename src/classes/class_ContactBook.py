@@ -1,5 +1,5 @@
 from collections import UserList
-from libraries.classes.class_Contact import Contact
+from src.classes.class_Contact import Contact
 
 
 class ContactBook(UserList):
