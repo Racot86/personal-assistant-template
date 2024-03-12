@@ -42,6 +42,11 @@ class Note:
         self.__time = datetime.now()
         self.__body = Body(new_value)
 
+    @property
+    def time(self):
+        if self.__time != '':
+            return self.__time.strftime("%d-%m-%Y %H:%M:%S")
+
     def __find_tags(self):
         pass
 
