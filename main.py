@@ -106,7 +106,6 @@ def main():
         term_width = os.get_terminal_size().columns
         term_height = os.get_terminal_size().lines
         contacts = ContactBook(load_contacts())
-        print(contacts[0])
         print(f'terminal dimensions: {term_width}x{term_height}')
         cmd = parse_cmd(prompt('Command, my Lord> '))
         print(move_ln_up, end='')  # moves cursor to beginning of prev line
