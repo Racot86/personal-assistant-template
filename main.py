@@ -39,12 +39,12 @@ def main():
         term_height = os.get_terminal_size().lines
         contacts = ContactBook(load_contacts())
         notes = NoteBook(load_notes())
-        print(f'terminal window size: {term_width}x{term_height}')
+        print(f"terminal window size: {term_width}x{term_height}")
         cmd = parse_cmd(prompt('Command, my Lord> '))
         print(move_ln_up, end='')  # moves cursor to beginning of prev line
         print(Settings.bg_color + ' ' * term_width, end='\r')  # clears line and paints it with background color
         print(
-            f'  {Settings.bg_color}{Settings.time_color}{datetime.now().strftime('%d/%m %H:%M')}{Settings.end_color}    {' '.join(cmd)}')
+            f"  {Settings.bg_color}{Settings.time_color}{datetime.now().strftime('%d/%m %H:%M')}{Settings.end_color}    {' '.join(cmd)}")
         print(Settings.end_all, end='')
         match cmd[0]:
             case 'contacts':
