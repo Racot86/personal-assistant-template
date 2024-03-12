@@ -51,4 +51,4 @@ class Note:
         pass
 
     def __str__(self):
-        return f'title: {self.title}\nbody: {self.body}\ntime: {self.__time}\ntags: {self.__tags}'
+        return f'title: {self.title}\nbody: {self.body}\ntime: {self.__time.strftime("%d-%m-%Y %H:%M:%S")}\ntags: {self.__tags}'

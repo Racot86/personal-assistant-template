@@ -39,7 +39,6 @@ def main():
         term_height = os.get_terminal_size().lines
         contacts = ContactBook(load_contacts())
         notes = NoteBook(load_notes())
-        print(notes[0].time)
         print(f"terminal window size: {term_width}x{term_height}")
         cmd = parse_cmd(prompt('Command, my Lord> '))
         print(move_ln_up, end='')  # moves cursor to beginning of prev line
