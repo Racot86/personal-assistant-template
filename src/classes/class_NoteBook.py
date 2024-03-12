@@ -18,9 +18,9 @@ class NoteBook(UserList):
         else:
             return False
 
-    def get_note(self, note_name: str):
+    def get_note(self, note_title: str):
         for note in self.data:
-            if note.name == note_name:
+            if note.title == note_title:
                 return note
         return False
 
