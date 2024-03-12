@@ -101,18 +101,12 @@ def process_others_command(cmd):
             print('Command not recognized')
 
 
-n = Contact(33)
-n.phones = '2222'
-n.email = 'ddddd@mmm.com'
-n.birthday = '04-06-1986'
-
-print(n.birthday)
-
 def main():
     while True:
         term_width = os.get_terminal_size().columns
         term_height = os.get_terminal_size().lines
         contacts = ContactBook(load_contacts())
+        print(contacts[0])
         print(f'terminal dimensions: {term_width}x{term_height}')
         cmd = parse_cmd(prompt('Command, my Lord> '))
         print(move_ln_up, end='')  # moves cursor to beginning of prev line

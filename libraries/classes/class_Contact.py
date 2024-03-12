@@ -15,7 +15,8 @@ def validation_tracker(func):
                 print('Entry has invalid name')
             else:
                 print(e)
-
+        except TypeError as e:
+            print(e)
 
     return wrapper
 
@@ -24,8 +25,7 @@ class Name(Field):
     @validation_tracker
     def __init__(self, value):
         if isinstance(value, str):
-            if value != '':
-                super().__init__(value)
+            super().__init__(value)
         else:
             value = str(value)
             super().__init__(value)
@@ -104,6 +104,11 @@ class Birthday(Field):
             print('Entry has wrong date format')
             value = ''
             super().__init__(value)
+        except TypeError:
+            value = ''
+            super().__init__(value)
+            print('Entry has wrong date format')
+
 
 class Address(Field):
     def __init__(self, value):
@@ -145,7 +150,11 @@ class Contact:
 
     @phones.setter
     def phones(self, new_value):
-        self.__phones = Phones(new_value)
+        check = Phones(new_value)
+        if check.value != []:
+            self.__phones = Phones(new_value)
+        if new_value == []:
+            self.__phones = []
 
     @property
     def email(self):
@@ -156,7 +165,12 @@ class Contact:
 
     @email.setter
     def email(self, new_value):
-        self.__email = Email(new_value)
+        if new_value != '':
+            check = Email(new_value)
+            if check.value != '':
+                self.__email = Email(new_value)
+        else:
+            self.__email = ''
 
     @property
     def address(self):
@@ -178,12 +192,17 @@ class Contact:
 
     @birthday.setter
     def birthday(self, new_value):
-        self.__birthday = Birthday(new_value)
+        if new_value != '':
+            check = Birthday(new_value)
+            if check.value != '':
+                self.__birthday = Birthday(new_value)
+        else:
+            self.__birthday = ''
 
     @property
     def remark(self):
         if self.__remark != '':
-            return self.__remark
+            return self.__remark.value
         else:
             return self.__remark
 

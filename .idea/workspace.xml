@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="393eaab2-29cc-4101-bbb1-eda4f69a36af" name="Changes" comment="edited Field">
+    <list default="true" id="393eaab2-29cc-4101-bbb1-eda4f69a36af" name="Changes" comment="amended address remark">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts.bin" beforeDir="false" afterPath="$PROJECT_DIR$/contacts.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libraries/classes/class_Contact.py" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/classes/class_Contact.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -45,27 +46,30 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2dK2KsdkurSNNZOw6VVtEq6Mk6W" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;diff__class__declare&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/dmytromayevsky/PycharmProjects/personal-assistant-template/libraries/functions/notes&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "diff__class__declare",
+    "last_opened_file_path": "/Users/dmytromayevsky/PycharmProjects/personal-assistant-template/libraries/functions/notes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/libraries/functions/notes" />
@@ -127,7 +131,7 @@
       <workItem from="1710080381226" duration="2050000" />
       <workItem from="1710093356079" duration="912000" />
       <workItem from="1710103723489" duration="166000" />
-      <workItem from="1710196332421" duration="1065000" />
+      <workItem from="1710196332421" duration="9232000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -233,7 +237,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710103752642</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="amended name phones birthdays">
+      <option name="closed" value="true" />
+      <created>1710201015238</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1710201015238</updated>
+    </task>
+    <task id="LOCAL-00015" summary="amended address remark">
+      <option name="closed" value="true" />
+      <created>1710201218112</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1710201218112</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +271,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="initial commit" />
     <MESSAGE value="added save/load contacts&#10;created Note, start creating NoteBook" />
     <MESSAGE value="added contacts search blank function&#10;added notes filter and search blank functions" />
@@ -260,9 +281,11 @@
     <MESSAGE value="added removed venv in commits" />
     <MESSAGE value="splitted classes Contact and ContactBook" />
     <MESSAGE value="created  field and Name" />
-    <option name="LAST_COMMIT_MESSAGE" value="created  field and Name" />
+    <MESSAGE value="amended name phones birthdays" />
+    <MESSAGE value="amended address remark" />
+    <option name="LAST_COMMIT_MESSAGE" value="amended address remark" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/personal_assistant_template$main.coverage" NAME="main Coverage Results" MODIFIED="1710197391822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/personal_assistant_template$main.coverage" NAME="main Coverage Results" MODIFIED="1710230281080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
