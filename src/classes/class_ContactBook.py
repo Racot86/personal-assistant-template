@@ -4,10 +4,10 @@ from src.classes.class_Contact import Contact
 
 class ContactBook(UserList):
 
-    def contact_exists(self, new_value: Contact):
+    def contact_exists(self, name: str):
         match = 0
         for contact in self.data:
-            if contact.name == new_value.name:
+            if contact.name == name:
                 match = 1
         if match == 0:
             return False
@@ -15,7 +15,7 @@ class ContactBook(UserList):
             return True
 
     def add_contact(self, value: Contact):
-        if isinstance(value, Contact) and not self.contact_exists(value):
+        if isinstance(value, Contact) and not self.contact_exists(value.name):
             self.data.append(value)
             return True
         else:
