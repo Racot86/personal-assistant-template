@@ -4,35 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="393eaab2-29cc-4101-bbb1-eda4f69a36af" name="Changes" comment="changed class branch merged">
+    <list default="true" id="393eaab2-29cc-4101-bbb1-eda4f69a36af" name="Changes" comment="get_tags - working">
+      <change afterPath="$PROJECT_DIR$/contacts.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tools/StorageController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/classes/class_Contact.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/class_Contact.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/classes/class_ContactBook.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/class_ContactBook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/classes/class_Field.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/class_Field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/classes/class_notes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/class_notes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/command_controllers/process_contacts_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/command_controllers/process_contacts_command.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/command_controllers/process_notes_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/command_controllers/process_notes_command.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/command_controllers/process_others_commans.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/command_controllers/process_others_commans.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/contacts/c_change_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/contacts/c_change_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/contacts/c_create_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/contacts/c_create_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/contacts/c_delete_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/contacts/c_delete_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/contacts/c_search_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/contacts/c_search_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/contacts/c_show_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/contacts/c_show_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/notes/n_change_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/notes/n_change_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/notes/n_create_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/notes/n_create_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/notes/n_delete_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/notes/n_delete_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/notes/n_filter_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/notes/n_filter_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/notes/n_search_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/notes/n_search_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/notes/n_show_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/notes/n_show_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/others/o_about_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/others/o_about_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/others/o_hello_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/others/o_hello_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/others/o_help_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/others/o_help_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/functions/others/o_war_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/others/o_war_cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/tools/load_contacts.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/load_contacts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/tools/load_notes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/load_notes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/tools/save_contacts.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/save_contacts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/tools/save_notes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/save_notes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/class_Note.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/class_Note.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/contacts/c_delete_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/contacts/c_delete_cmd.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +40,7 @@
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
         <option name="accountId" value="00eefe7b-b75f-43e1-8662-7965ec96727a" />
-        <option name="url" value="https://github.com/Racot86/personal-assistant-template.git" />
+        <option name="url" value="https://github.com/Racot86/project-TimeLords12.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -77,23 +58,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/dmytromayevsky/PycharmProjects/personal-assistant-template/libraries/functions/notes",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#13-feature-notes-filter-by-tug&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dmytromayevsky/PycharmProjects/personal-assistant-template/libraries/functions/notes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/libraries/functions/notes" />
@@ -156,6 +137,11 @@
       <workItem from="1710093356079" duration="912000" />
       <workItem from="1710103723489" duration="166000" />
       <workItem from="1710196332421" duration="10237000" />
+      <workItem from="1710260176735" duration="7291000" />
+      <workItem from="1710270541443" duration="38000" />
+      <workItem from="1710270630463" duration="29000" />
+      <workItem from="1710270677457" duration="16015000" />
+      <workItem from="1710346494314" duration="1162000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -317,7 +303,31 @@
       <option name="project" value="LOCAL" />
       <updated>1710234585202</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="amended class Note time parameter">
+      <option name="closed" value="true" />
+      <created>1710260600633</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1710260600633</updated>
+    </task>
+    <task id="LOCAL-00022" summary="amended class Note get_note">
+      <option name="closed" value="true" />
+      <created>1710263115533</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1710263115533</updated>
+    </task>
+    <task id="LOCAL-00023" summary="get_tags - working">
+      <option name="closed" value="true" />
+      <created>1710269017822</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1710269017822</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,9 +362,13 @@
     <MESSAGE value="class ContactBook done!!!" />
     <MESSAGE value="created controllers" />
     <MESSAGE value="changed class branch merged" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed class branch merged" />
+    <MESSAGE value="amended class Note time parameter" />
+    <MESSAGE value="amended class Note get_note" />
+    <MESSAGE value="get_tags - working" />
+    <option name="LAST_COMMIT_MESSAGE" value="get_tags - working" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/project_TimeLords12$main.coverage" NAME="main Coverage Results" MODIFIED="1710347625849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/personal_assistant_template$main.coverage" NAME="main Coverage Results" MODIFIED="1710235070108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
