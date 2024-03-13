@@ -13,7 +13,7 @@ def n_search_cmd(cmd):
     
     if found_notes:
         for idx, note in found_notes:
-            print(f"Index: {idx}, Title: '{note.title}', Body: '{note.body}'")
+            print(f"ID: {idx}, Title: '{note.title}', Body: '{note.body}'")
     else:
         print("No notes found.")
 
