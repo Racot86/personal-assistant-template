@@ -1,44 +1,47 @@
-# from src.tools.load_contacts import load_contacts
-# from src.tools.save_contacts import save_contacts
-# from src.classes.class_ContactBook import ContactBook
-# from src.classes.class_Contact import Contact
+from src.tools.StorageController import StorageController 
 
 def c_search_cmd(cmd):
-    pass
+
+    if len(cmd) != 2:
+        print('My lord, I need to see the command and one thing about enemy... Write it down for me.')
+        return
+    
+    storage = StorageController()
+    contacts = storage.load_contact_book()
+
+    search_param = cmd[1]
        
-    # if len(cmd) != 2:
-    #     print('My lord, I need to see the command and something about your friend... Write it down for me.')
-    #     return
-    # some = Contact('Dad')
-    # contacts = ContactBook(load_contacts())
-    # contact_data = cmd[1]
-    
-    # save_contacts(contacts)
+    if search_param:
+        found_contact = None
 
-    # if '@' in contact_data and '.' in contact_data:
-    #     search_field = 'email'
-    # elif contact_data.isdigit() and len(contact_data) == 10:
-    #     search_field = 'phone'
-    # else:
-    #     search_field = 'name'
+        
+        for contact in contacts:
+            if contact.name.lower() == search_param.lower():
+                found_contact = contact
+                break
 
-    # found_contacts = []
-    # for contact in contacts:
-    #     if search_field == 'email' and contact_data.lower() in contact.email.lower():
-    #         found_contacts.append(contact)
-    #     elif search_field == 'phone' and contact_data in contact.phones:
-    #         found_contacts.append(contact)
-    #     elif search_field == 'name' and contact_data.lower() in contact.name.lower():
-    #         found_contacts.append(contact)
+        
+        if not found_contact:
+            for contact in contacts:
+                if search_param in contact.phones:
+                    found_contact = contact
+                    break
 
-    # if found_contacts:
-    #     for found_contact in found_contacts:
-    #         print(found_contact)
-    # else:
-    #     print('No contacts found matching your search.')
-
-    
-
-
-
+        
+        if not found_contact:
+            for contact in contacts:
+                if search_param.lower() == contact.email.lower():
+                    found_contact = contact
+                    break
+        
+        if not found_contact:
+            for contact in contacts:
+                if search_param == contact.birthday:
+                    found_contact = contact
+                    break
+                
+        if found_contact:
+            print(f"Contact found:\n{found_contact}")
+        else:
+            print(f"No contact found with '{search_param}'")
     

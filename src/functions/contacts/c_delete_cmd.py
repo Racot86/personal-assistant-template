@@ -1,11 +1,4 @@
 from src.tools.StorageController import StorageController 
-# from src.classes.class_Contact import Contact
-
-
-
-
-
-
 
 def c_delete_cmd(cmd):
     if len(cmd) != 2:
@@ -14,10 +7,6 @@ def c_delete_cmd(cmd):
     
     storage = StorageController()
     contacts = storage.load_contact_book()
-
-    # contact = Contact('Dmytro')
-    # contact.birthday = '04-06-1986'
-    # contacts.add_contact(contact)
 
     contact_name = cmd[1]
     contact = contacts.get_contact(contact_name)
