@@ -5,17 +5,6 @@ from src.classes.class_Contact import Contact
 
 
 def c_delete_cmd(cmd):
-    contacts = ContactBook(load_contacts())
-    contact = Contact('Dmytro')
-    contact.birthday = '04-06-1986'
-    contacts.add_contact(contact)
-    contacts.delete_contact(contact)
-    print(contacts[0])
-
-    save_contacts(contacts)
-
-
-def c_delete_cmd(cmd):
     if len(cmd) != 2:
         print('My lord, I need to see the command and one enemy... Write it down for me.')
         return
@@ -27,9 +16,6 @@ def c_delete_cmd(cmd):
     if contact:
         contacts.delete_contact(contact)
         save_contacts(contacts)
-        print(f"Enemy '{contact_name}' is defeated by being destroyed.")        
+        print(f"Enemy '{contact_name}' is defeated by being destroyed.")
     else:
         print(f"Enemy '{contact_name}' was early defeated. Write me new name.")
-
-
-
