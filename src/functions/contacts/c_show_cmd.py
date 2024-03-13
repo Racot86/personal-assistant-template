@@ -24,11 +24,11 @@ def c_show_cmd(cmd):
                 pass
 
         if "all" in cmd and "show" in cmd:
-            print("run Show all")
+            #print("run Show all")
             c_show_all()
         elif "birthdays" in cmd and range_days:
-            print("run birthdays" )
-            get_birthdays_per_week(range_days) ## первым аргументом надо добавить наш справочник Notebook
+            #print("run birthdays" )
+            get_birthdays(range_days) 
         elif cmd[0] == "show" and cmd[1]:
             print("run birthday Name show")
         else:
@@ -36,7 +36,7 @@ def c_show_cmd(cmd):
     except Exception as e:
         print(f"An error occurred: {str(e)}. Please check your input and try again.")
 
-def get_birthdays_per_week(range_of_days):
+def get_birthdays(range_of_days):
     today = datetime.today().date()
     next_birthdays = []
 
@@ -45,7 +45,6 @@ def get_birthdays_per_week(range_of_days):
 
     for contact in contacts:
         name = contact.name
-        #print(contact.birthday)
         birthday = datetime.strptime(contact.birthday, '%d-%m-%Y').date()
         birthday_this_year = birthday.replace(year=today.year)
         if birthday_this_year < today:
@@ -54,26 +53,29 @@ def get_birthdays_per_week(range_of_days):
         if delta_days < range_of_days:
             age = birthday_this_year.year - birthday.year
             date_of_birthday = birthday.strftime("%d.%m")
-            next_birthdays.append(f"{name} will be {age} years old on {date_of_birthday}")
-
-    for birthday in next_birthdays:
-        print(birthday)
+            
+            birthday_text = f"{Fore.YELLOW}{name} will be {age} years old on {date_of_birthday}{Style.RESET_ALL}"
+            print(birthday_text)  
+            time.sleep(0.02)
 
     return next_birthdays
 
 
-def c_show_all():
 
+def c_show_all():
     storage = StorageController()
     contacts = storage.load_contact_book()
 
     headers = ["Name", "Phones", "E-mail", "Address", "Birthday", "Remark"]
-    row_format = "{:<20} {:<12} {:<30} {:<30} {:<12} {:<25}"
-    print(row_format.format(*headers))  # Выводим заголовки таблицы
-    print("-" * 129)  # Выводим разделительную линию
+    row_format = "{:<20} {:<12} {:<25} {:<25} {:<12} {:<25}"
+
+ 
+    header_row = row_format.format(*headers)
+    print(Fore.GREEN + header_row)
+    print("-" * 119) 
 
     for contact in contacts:
-        # Собираем данные из каждого контакта
+      
         name = contact.name
         phones = ', '.join(contact.phones) if contact.phones else ""
         email = contact.email if contact.email else ""
@@ -81,7 +83,12 @@ def c_show_all():
         birthday = contact.birthday if contact.birthday else ""
         remark = contact.remark if contact.remark else ""
         
-        # Выводим данные контакта, форматируя в строку в соответствии с заданным форматом
-        print(row_format.format(name, phones, email, address, birthday, remark))
+        row = row_format.format(name, phones, email, address, birthday, remark)
+        
+        for char in row:
+            print(Fore.YELLOW + char, end="", flush=True)  
+            time.sleep(0.02)  
+        print()  
+        sys.stdout.write(Style.RESET_ALL) 
 
         
