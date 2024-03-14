@@ -8,15 +8,16 @@ from src.tools.a_print import a_print
 def print_statistics(data):
     data = data['data']
 
-    a_print('   date: {:12}                     day: {:<}'.format(data['date'], data['day']))
-    a_print(f'  --------------------------------------------------')
+    a_print('   date: {:12}                 day: {:<}'.format(data['date'], data['day']))
+    a_print(f'{Settings.shadow_color}  ----------------------------------------------{Settings.end_all}',
+            used_colors=[Settings.shadow_color, Settings.end_all])
 
     delta = data['increase']
     for k, v in data['stats'].items():
         if delta[k] != 0:
-            print('{:>28}: {:<}'.format(k.replace('_', ' '), str(v) + '(' + str(delta[k]) + ')'))
+            print('   {:<36}: {:<}'.format(Settings.shadow_color + k.replace('_', ' ') + Settings.end_all, str(v) + '(' + Settings.success_color + str(delta[k]) + Settings.end_color + ')'))
         else:
-            print('{:>28}: {:<}'.format(k.replace('_', ' '), v))
+            print('   {:<36}: {:<}'.format(Settings.shadow_color + k.replace('_', ' ') + Settings.end_all , v))
 
     print('  resource: {:12}'.format(data['resource']))
     print('')
