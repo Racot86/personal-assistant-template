@@ -20,25 +20,29 @@ def c_create_cmd(cmd):
     if len(cmd)<2:
         print(f"{Settings.msg_color}My Lord, you forget enter a name?{Settings.end_color}")
     else:
-        contact = Contact(cmd[1])
-        items = cmd[2:]
-        for item in items:
-            if 'phones' in item:
-                add_contact_phones(contact, item)
-            elif 'email' in item:
-                add_contact_email(contact, item)
-            elif 'birthday' in item:
-                add_contact_birthday(contact, item)
+        if contacts.contact_exists(cmd[1]):
+            print(f"{Settings.error_color}Entry already exists, my Lord!{Settings.end_color}")
+        else:
+            contact = Contact(cmd[1])
+            items = cmd[2:]
+            for item in items:
+                if 'phones' in item:
+                    add_contact_phones(contact, item)
+                elif 'email' in item:
+                    add_contact_email(contact, item)
+                elif 'birthday' in item:
+                    add_contact_birthday(contact, item)
 
-    answer = input(f"{Settings.msg_color}Add some address? (yes/no) {Settings.end_color}").lower()
-    if answer in ["y", "yes"]:
-        address = input(f"{Settings.msg_color}Type some address >> {Settings.end_color}")
-        contact.address = address
+            answer = input(f"{Settings.msg_color}Add some address? (yes/no) {Settings.end_color}").lower()
+            if answer in ["y", "yes"]:
+                address = input(f"{Settings.msg_color}Type some address >> {Settings.end_color}")
+                contact.address = address
 
-    print(f"{Settings.success_color}Contact added successfuly!{Settings.end_color}")
-    contacts.add_contact(contact)
-    storage_controller.save_contact_book(contacts)
-    print(contact) #TODO: remove after testing?
+            print(f"{Settings.success_color}Contact added successfuly!{Settings.end_color}")
+            contacts.add_contact(contact)
+            storage_controller.save_contact_book(contacts)
+            print(contact) #TODO: remove after testing?
+
 
 
 def add_contact_phones(contact, string_phones:str):
