@@ -11,6 +11,21 @@ def o_help_cmd(cmd):
          'description': '',  # Explanation what this command does
          'examples': ''  # examples of command usage
          },
+         {'cmd': "contacts show all",
+         'syntax': "command does not require any additional parameters, it is used as is",
+         'description': "this command shows the content of the contact book (fields name, phone number, remark)",
+         'examples': "contacts show all"
+         },
+         {'cmd': "contacts show <name>",
+         'syntax': "contacts filter by tag <name>, useы only one name, shows all the matches",
+         'description': "This command searches and displays contacts filtered by birthdays in the next few days",
+         'examples': "contacts show Dmitry"
+         },
+         {'cmd': "contacts show birthdays <range>",
+         'syntax': "filters the contact book by birthdays in the next <range> days",
+         'description': "filters the contact book by birthdays in the next few days",
+         'examples': "contacts show Dmitry"
+         },
         # add other command below:)
     ]
 
