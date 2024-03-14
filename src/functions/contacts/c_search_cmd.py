@@ -1,9 +1,10 @@
 from src.tools.StorageController import StorageController 
+from settings import Settings
 
 def c_search_cmd(cmd):
 
     if len(cmd) != 2:
-        print('My lord, I need to see the command and one thing about enemy... Write it down for me.')
+        print(f"{Settings.warning_color}My lord, I need to see the command and one thing about enemy... Write it down for me.")
         return
     
     storage = StorageController()
@@ -41,7 +42,6 @@ def c_search_cmd(cmd):
                     break
                 
         if found_contact:
-            print(f"Contact found:\n{found_contact}")
+            print(f"{Settings.success_color}Contact found:{Settings.end_all}{Settings.msg_color}\n{found_contact}")
         else:
-            print(f"No contact found with '{search_param}'")
-    
+            print(f"{Settings.warning_color}No contact found with '{search_param}'")
