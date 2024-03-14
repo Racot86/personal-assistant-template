@@ -1,32 +1,54 @@
 from src.tools.StorageController import StorageController
-from colorama import Fore
+from colorama import Fore, Style
+from settings import Settings
 import time
 
 def n_show_cmd(cmd):
     storage = StorageController()
     notes = storage.load_note_book()
+    pattern = " ".join(cmd[1:])
+    note_found = False
 
     if notes.data:
-        intro_text = """
-
-         Across the streams of time,
-|-----|  in the vast library of the universe,
-|II|II|  lie the moments captured,
-|II|II|  in the whispers of these titles...
-|II|II|  Each a gateway, each a story,
-|II|II|  within the endless space of ideas!
-
+        tardis_label = "TARDIS: "
+        tardis_text = """
+           Across the streams of time,
+|-----|    in the vast library of the universe,
+|II|II|    lie the moments captured,
+|II|II|    in the whispers of these titles...
+|II|II|    Each a gateway, each a story,
+|II|II|    within the endless space of notes!
 """
-        for char in intro_text:
-            print(char, end='', flush=True)
-            time.sleep(0.01)
+        if len(pattern) == 0: 
+            print(f"{tardis_label}", end='')
+            print(f"{Settings.shadow_color}{tardis_text}{Settings.end_all}")
+            for index, note in enumerate(notes.data):
+                print(f"{Settings.notes_color}{index}: {note.title}{Settings.end_color}")
+            print()
 
-        for index, note in enumerate(notes.data):
-            notes_titles = f"{Fore.YELLOW}{index}: {note.title}\n{Fore.RESET}\n"
-            for char in notes_titles:
-                print(char, end='', flush=True)
-                time.sleep(0.015)
+        elif len(pattern) > 0:
+            for note in notes.data:
+                if pattern.lower() == note.title.lower():
 
+                    note_found = True
+                    print(f"{tardis_label}", end='')
+                    print(f"{Settings.shadow_color}{tardis_text}{Settings.end_all}")
+                    time.sleep(Settings.NOTES_INTRO_DELAY)
+
+                    print(f"{Settings.shadow_color}Title:{Settings.end_all} {note.title}")
+                    time.sleep(Settings.NOTES_TITLE_DELAY)
+
+                    print(f"{Settings.shadow_color}Body:{Settings.end_all}\n")
+                    time.sleep(Settings.NOTES_BODY_DELAY)
+
+                    for char in note.body:
+                        print(f"{Settings.notes_color}{char}{Settings.end_color}", end='', flush=True)
+                        time.sleep(Settings.NOTES_BODY_DELAY)
+                    print("\n")
+                    break
+
+            if not note_found:
+                print(f"TARDIS: {Settings.error_color}Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
+    
     else:
-        print("No notes available.") 
-
+        print(f"TARDIS:{Settings.error_color} Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
