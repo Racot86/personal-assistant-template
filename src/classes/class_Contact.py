@@ -1,126 +1,16 @@
-from datetime import datetime
-from src.classes.class_Field import Field
+'''Class Contact'''
 
+from src.classes.Name import Name
+from src.classes.Phones import Phones
+from src.classes.Email import Email
+from src.classes.Address import Address
+from src.classes.Birthday import Birthday
+from src.classes.Remark import Remark
 
-def validation_tracker(func):
-    def wrapper(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
-        except ValueError as e:
-            if str(e) == 'invalid_phone':
-                print('Entry has invalid phone number(s)')
-            elif str(e) == 'invalid_email':
-                print('Entry has invalid e-mail address')
-            elif str(e) == 'invalid_name':
-                print('Entry has invalid name')
-            else:
-                print(e)
-        except TypeError as e:
-            print(e)
-
-    return wrapper
-
-
-class Name(Field):
-    @validation_tracker
-    def __init__(self, value):
-        if isinstance(value, str):
-            super().__init__(value)
-        else:
-            value = str(value)
-            super().__init__(value)
-            raise ValueError('invalid_name')
-
-    def __str__(self):
-        return self.value
-
-
-class Phones(Field):
-    @validation_tracker
-    def __init__(self, value):
-        if isinstance(value, list):
-            valid_list = []
-            invalid = False
-            for phone in value:
-                phone = self.__reformat_phone(phone)
-                if self.__validate_phone(phone):
-                    valid_list.append(phone)
-                else:
-                    invalid = True
-            value = valid_list
-            super().__init__(value)
-            if invalid == True:
-                raise ValueError('invalid_phone')
-
-        elif isinstance(value, str):
-            value = self.__reformat_phone(value)
-            if self.__validate_phone(value):
-                value = [value]
-                super().__init__(value)
-            else:
-                value = []
-                super().__init__(value)
-                raise ValueError('invalid_phone')
-        else:
-            value = []
-            super().__init__(value)
-            raise ValueError('invalid_phone')
-
-    def __reformat_phone(self, value):
-        if isinstance(value, str):
-            pattern = ('(', ')', '+', '38', '-')
-            for check in pattern:
-                value = value.replace(check, '')
-                value = value.strip()
-        else:
-            value = ''
-        return value
-
-    def __validate_phone(self, value):
-        if value.isdigit() and len(value) == 10:
-            return True
-        else:
-            return False
-
-
-class Email(Field):
-    @validation_tracker
-    def __init__(self, value):
-        if isinstance(value, str) and '@' in value and '.' in value:
-            super().__init__(value)
-        else:
-            value = ''
-            super().__init__(value)
-            raise ValueError("invalid_email")
-
-
-class Birthday(Field):
-
-    def __init__(self, value):
-        try:
-            value = datetime.strptime(value, '%d-%m-%Y')
-            super().__init__(value)
-        except ValueError:
-            print('Entry has wrong date format')
-            value = ''
-            super().__init__(value)
-        except TypeError:
-            value = ''
-            super().__init__(value)
-            print('Entry has wrong date format')
-
-
-class Address(Field):
-    def __init__(self, value):
-        super().__init__(value)
-
-
-class Remark(Field):
-    def __init__(self, value):
-        super().__init__(value)
 
 
 class Contact:
+    '''Contact'''
     def __init__(self, name):
         self.__name = ''
         self.name = name
@@ -132,6 +22,7 @@ class Contact:
 
     @property
     def name(self):
+        '''Getting a name of contact'''
         if self.__name != '':
             return self.__name.value
         else:
@@ -143,6 +34,7 @@ class Contact:
 
     @property
     def phones(self):
+        '''Getting a phones of contact'''
         if self.__phones != []:
             return self.__phones.value
         else:
@@ -158,6 +50,7 @@ class Contact:
 
     @property
     def email(self):
+        '''Getting a email of contact'''
         if self.__email != '':
             return self.__email.value
         else:
@@ -174,6 +67,7 @@ class Contact:
 
     @property
     def address(self):
+        '''Getting a address of contact'''
         if self.__address != '':
             return self.__address.value
         else:
@@ -185,6 +79,7 @@ class Contact:
 
     @property
     def birthday(self):
+        '''Getting abirthday of contact'''
         if self.__birthday != '':
             return self.__birthday.value.strftime('%d-%m-%Y')
         else:
@@ -201,6 +96,7 @@ class Contact:
 
     @property
     def remark(self):
+        '''Getting a remark of contact'''
         if self.__remark != '':
             return self.__remark.value
         else:
