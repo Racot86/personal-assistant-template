@@ -10,6 +10,7 @@ def n_create_cmd(cmd):
     storage = StorageController()
     notes = storage.load_note_book()
     title = " ".join(cmd[1:])
+    print("end")
     for note in notes:
         if note.title == title:
             print("Note with this title already exists. Cannot create a duplicate note.")
