@@ -3,8 +3,18 @@ from colorama import Fore, Back, Style
 
 class Settings:
 
+#TODO: remove next variables before prod
     time_color = Fore.CYAN
     bg_color = Back.LIGHTBLACK_EX
-    end_color = Fore.RESET
-    end_all = Style.RESET_ALL
     bg_cmd_line_color = Back.LIGHTCYAN_EX
+
+# input_color, msg_color, warning_color, error_color
+    style_bold = Style.BRIGHT # Some bolder text
+    msg_color = Fore.CYAN # regular bot message
+    input_color = Fore.WHITE # user input color
+    warning_color = Fore.LIGHTYELLOW_EX # warning bot message
+    error_color = Fore.LIGHTRED_EX # error bot message
+    success_color = Fore.LIGHTGREEN_EX # success bot message
+    bg_msg_color = Back.LIGHTBLACK_EX
+    end_color = Fore.RESET # end font color tag (required on each line!)
+    end_all = Style.RESET_ALL # end font and background color tag

@@ -1,6 +1,7 @@
 '''Contact change command'''
 
 from src.tools.StorageController import StorageController
+from settings import Settings
 
 def c_change_cmd(cmd):
     '''
@@ -12,37 +13,44 @@ def c_change_cmd(cmd):
     '''
     storage_controller = StorageController()
     contacts = storage_controller.load_contact_book()
-    print(len(cmd))
     if len(cmd) < 2:
         # cmd isn't contains a name
-        print("My Lord, you forget enter a name?")
+        print(f"{Settings.warning_color}My Lord, you forget enter a name?{Settings.end_color}")
     else:
-        print(contacts)
         contact = contacts.get_contact(cmd[1])
         if contact:
             if len(cmd) == 2:
                 # cmd contains only name of searching contact
-                value = input("What you want to change? Phones, email, address or birthday? ")
+                value = input(f"{Settings.msg_color}What you want to change? Phones, email, address or birthday? {Settings.end_color}")
                 if 'phones' in value.lower():
-                    phones = input("Ok, input phone or phones by comma: ")
+                    phones = input(f"{Settings.msg_color}Ok, input phone or phones by comma: {Settings.end_color}")
                     contact.phones = phones.split(',')
-                    print("New phone saved, my Lord!")
+                    save(contacts, contact)
+                    print(f"{Settings.success_color}New phone saved, my Lord!{Settings.end_color}")
                 elif 'email' in value.lower():
-                    email = input("Ok, input email: ")
+                    email = input(f"{Settings.msg_color}Ok, input email: {Settings.end_color}")
                     contact.email = email
-                    print("New email saved, my Lord!")
+                    save(contacts, contact)
+                    print(f"{Settings.success_color}New email saved, my Lord!{Settings.end_color}")
                 elif 'birthday' in value.lower():
-                    birthday = input("Ok, input birthday in next format 23-10-2005: ")
+                    birthday = input(f"{Settings.msg_color}Ok, input birthday in next format 23-10-2005: {Settings.end_color}")
                     contact.birthday = birthday
-                    print("New birthday saved, my Lord!")
+                    save(contacts, contact)
+                    print(f"{Settings.success_color}New birthday saved, my Lord!{Settings.end_color}")
                 elif 'address' in value.lower():
-                    address = input("Ok, input address: ")
+                    address = input(f"{Settings.msg_color}Ok, input address: {Settings.end_color}")
                     contact.address = address
-                    print("New address saved, my Lord!")
+                    save(contacts, contact)
+                    print(f"{Settings.success_color}New address saved, my Lord!{Settings.end_color}")
                 else:
-                    print("Sorry, my Lord, I can't recognize this command...")
-            else:
-                print("Sorry, my Lord, but contact is not found..")
+                    print(f"{Settings.error_color}Sorry, my Lord, I can't recognize this command...{Settings.end_color}")
             print(contact) #TODO: remove after testing?
         else:
-            print("Sorry, my Lord, but contact not found..")
+            print(f"{Settings.error_color}Sorry, my Lord, but contact is not found..{Settings.end_color}")
+
+
+def save(contacts, contact):
+    '''Save contacts on disk'''
+    storage_controller = StorageController()
+    contacts.add_contact(contact)
+    storage_controller.save_contact_book(contacts)
