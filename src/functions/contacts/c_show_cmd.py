@@ -11,7 +11,6 @@ import sys
 def c_show_cmd(cmd):
 
     #print(cmd)
-
     range_days = None
     if not cmd:
         print("Empty command. Please enter a command.")
@@ -26,14 +25,13 @@ def c_show_cmd(cmd):
                 pass
 
         if "all" in cmd and "show" in cmd:
-
             #print("run Show all")
             c_show_all()
         elif "birthdays" in cmd and range_days >= 0:
             #print("run birthdays" )
             get_birthdays(range_days) 
         elif cmd[0] == "show" and cmd[1]:
-            print("run birthday Name show")
+            #print("run birthday Name show")
             search_contact_by_name(cmd[1])
         else:
             print("Invalid command. Please check your input and try again.")
@@ -51,19 +49,22 @@ def output(text):
 def get_birthdays(range_of_days):
     today = datetime.today().date()
     next_birthdays = []
+    #print(today)
 
     storage = StorageController()
     contacts = storage.load_contact_book()
-
     no_birthdays = True
 
     for contact in contacts:
         name = contact.name
         birthday = datetime.strptime(contact.birthday, '%d-%m-%Y').date()
+        
         birthday_this_year = birthday.replace(year=today.year)
+        #print(birthday_this_year)
         if birthday_this_year < today:
             birthday_this_year = birthday_this_year.replace(year=today.year + 1)
         delta_days = (birthday_this_year - today).days
+        #print(delta_days)
         if delta_days < range_of_days:
             age = birthday_this_year.year - birthday.year
             date_of_birthday = birthday.strftime("%d.%m")
@@ -81,23 +82,17 @@ def get_birthdays(range_of_days):
 def c_show_all():
     storage = StorageController()
     contacts = storage.load_contact_book()
-
-    headers = ["Name", "Phones", "E-mail", "Address", "Birthday", "Remark"]
-    row_format = "{:<16} {:<12} {:<25} {:<20} {:<12} {:<25}"
-    header_row = row_format.format(*headers)
-    output(Fore.GREEN + header_row)
+    output(Fore.GREEN + "Name             Phones           Remark")
+    output("-" * 44)
 
     for contact in contacts:
         name = contact.name
         phones = ', '.join(contact.phones) if contact.phones else ""
-        email = contact.email if contact.email else ""
-        address = contact.address if contact.address else ""
-        birthday = contact.birthday if contact.birthday else ""
         remark = contact.remark if contact.remark else ""
-
-        row = row_format.format(name, phones, email, address, birthday, remark)
+        row = "{:<16} {:<16} {:<16}".format(name, phones, remark)
         output(row)
-    output(Style.RESET_ALL)
+        
+    print(Style.RESET_ALL)
 
 
 def search_contact_by_name(name):
@@ -113,7 +108,10 @@ def search_contact_by_name(name):
         output(f"{Fore.GREEN}Found contact(s) with name '{name}':{Style.RESET_ALL}")
 
         for contact in found_contacts:
-            contact_info = f"Name: {contact.name}, Phones: {', '.join(contact.phones)}, E-mail: {contact.email}, Address: {contact.address}, Birthday: {contact.birthday}, Remark: {contact.remark}"
-            output(contact_info)
+            #contact_info = f"Name: {contact.name}, Phones: {', '.join(contact.phones)}, E-mail: {contact.email}, Address: {contact.address}, Birthday: {contact.birthday}, Remark: {contact.remark}"
+            #output(contact_info)
+            contact_info = str(contact)
+            for line in contact_info.splitlines():
+                output(line)
     else:
         output(f"{Fore.RED}I'm sorry, my Lord. We don't have info about '{name}' in our contacts{Style.RESET_ALL}")
