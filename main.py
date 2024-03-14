@@ -31,19 +31,10 @@ def parse_cmd(cmd):
     return cmd
 
 
-a_print(f'Doctor, looks like you forget - I am Tardis!',
-        used_colors=[Settings.bg_color,Settings.time_color],
-        prefix='TARDIS: ',
-        prefix_color=Settings.bg_color,
-        main_color=Settings.time_color,
-        speed=0.02,
-        wait_after=0.5
-        )
 a_print(f'If you forget something, ask me using help command.',
-        used_colors=[Settings.bg_color,Settings.time_color],
-        prefix='        ',
-        main_color=Settings.time_color,
-        speed=0.02,
+        used_colors=[Settings.msg_color],
+        prefix='TARDIS: ',
+        main_color=Settings.msg_color,
         )
 
 
@@ -52,11 +43,9 @@ def main():
         term_width = os.get_terminal_size().columns
         term_height = os.get_terminal_size().lines
         # print(f"terminal window size: {term_width}x{term_height}")
-        cmd = parse_cmd(prompt('Command, my Lord> '))
-        print(move_ln_up, end='')  # moves cursor to beginning of prev line
-        print(Settings.bg_color + ' ' * term_width, end='\r')  # clears line and paints it with background color
+        cmd = parse_cmd(prompt('Enter your command> '))
         print(
-            f"  {Settings.bg_color}{Settings.time_color}{datetime.now().strftime('%d/%m %H:%M')}{Settings.end_color}  Doctor: {' '.join(cmd)}")
+            f"  Doctor: {' '.join(cmd)}")
         print(Settings.end_all, end='')
         match cmd[0]:
             case 'contacts':
