@@ -44,6 +44,8 @@ def main():
         term_height = os.get_terminal_size().lines
         # print(f"terminal window size: {term_width}x{term_height}")
         cmd = parse_cmd(prompt('Enter your command> '))
+        print(move_ln_up, end='')
+        print(" " * term_width, end='\r')
         print(
             f"  Doctor: {' '.join(cmd)}")
         print(Settings.end_all, end='')
