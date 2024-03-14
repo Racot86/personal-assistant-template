@@ -2,3 +2,4 @@ pip~=23.2.1
 wcwidth~=0.2.13
 colorama~=0.4.6
 prompt_toolkit
+requests
