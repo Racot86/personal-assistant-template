@@ -11,6 +11,16 @@ def o_help_cmd(cmd):
          'description': '',  # Explanation what this command does
          'examples': ''  # examples of command usage
          },
+         {'cmd': 'contacts delete',  
+         'syntax': 'contacts delete <name>', 
+         'description': 'This command deletes the specified contact',  
+         'examples': 'contacts delete name'  
+         },
+         {'cmd': 'contacts search',  
+         'syntax': 'contacts search <name> / contacts search <phone> / contacts search <email>', 
+         'description': 'This command searches for a contact by name, phone number or email',  
+         'examples': 'contacts search name / contacts search 0630004400 / contacts search test@email.com'  
+         },
         # add other command below:)
     ]
 

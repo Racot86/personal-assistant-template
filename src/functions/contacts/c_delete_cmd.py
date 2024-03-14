@@ -1,8 +1,9 @@
 from src.tools.StorageController import StorageController 
+from settings import Settings
 
 def c_delete_cmd(cmd):
     if len(cmd) != 2:
-        print('My lord, I need to see the command and one enemy... Write it down for me.')
+        print(f"{Settings.warning_color}My lord, I need to see the command and one enemy... Write it down for me.")
         return
     
     storage = StorageController()
@@ -13,8 +14,8 @@ def c_delete_cmd(cmd):
     if contact:
         contacts.delete_contact(contact)
         storage.save_contact_book(contacts)
-        print(f"Enemy '{contact_name}' is defeated by being destroyed.")        
+        print(f"{Settings.success_color}Enemy '{contact_name}' is defeated by being destroyed.")        
     else:
-        print(f"Enemy '{contact_name}' was early defeated. Write me new name.")
+        print(f"{Settings.warning_color}Enemy '{contact_name}' was early defeated. Write me new name.")
 
 
