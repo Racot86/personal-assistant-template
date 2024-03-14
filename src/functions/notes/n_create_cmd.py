@@ -5,18 +5,6 @@ from prompt_toolkit import prompt
 
 '''commands to check: notes create <title>'''
 
-# from tkinter import * 
- 
-# from tkinter import messagebox 
- 
-# top = Tk() 
- 
-# top.geometry("150x100")     
- 
-# messagebox.showinfo("information","To end text recording mode, press opt+ent or esc+ent(mac)") 
- 
-# top.mainloop() 
-
 
 def n_create_cmd(cmd):
     storage = StorageController()
