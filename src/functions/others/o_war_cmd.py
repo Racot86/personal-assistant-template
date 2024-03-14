@@ -14,17 +14,16 @@ def o_war_cmd(cmd):
             if x.status_code == 200:
                 a_print('Look what I found to your request!',
                         prefix='TARDIS: ',
-                        prefix_color=Settings.time_color,
-                        main_color= Settings.input_color,
-                        used_colors=[Settings.time_color, Settings.msg_color]
+                        main_color= Settings.msg_color,
+                        used_colors=[Settings.msg_color]
                         )
                 data = x.content.decode()
                 data = json.loads(data)
                 data = data['data']
-                print("TODAY'S RUSSIAN CRAP ARMY LOSS")
+                a_print("       TODAY'S ORCS ARMY LOSS", main_color=Settings.warning_color)
 
-                print('   date: {:12}                     day: {:<}'.format(data['date'], data['day']))
-                print('  --------------------------------------------------')
+                a_print('   date: {:12}                     day: {:<}'.format(data['date'], data['day']))
+                a_print(f'  --------------------------------------------------')
 
                 delta = data['increase']
                 for k, v in data['stats'].items():
