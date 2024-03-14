@@ -1,1 +1,2 @@
-[{"name": "Dmytro", "birthday": "", "address": "Ukraine", "phones": [], "remark": "", "email": ""}, {"name": "Dmytro", "birthday": "", "address": "Ukraine", "phones": [], "remark": "", "email": ""}]
+[{"name": "Dmytro", "birthday": "18-03-1986", "address": "Ukraine", "phones": ["0970279618"], "remark": "team lead", "email": "mayevskydv@gmail.com"},
+{"name": "Hanna", "birthday": "20-03-1995", "address": "Ukraine", "phones": ["0970271111"], "remark": "inspirer", "email": "Hanna_inspirer@gmail.com"}]
