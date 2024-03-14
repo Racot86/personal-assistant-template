@@ -1,9 +1,9 @@
 
 '''Contact create command'''
 
-from src.classes.class_ContactBook import ContactBook
+from src.tools.StorageController import StorageController
 from src.classes.class_Contact import Contact
-from src.tools.load_contacts import load_contacts
+from settings import Settings
 
 def c_create_cmd(cmd):
     '''
@@ -11,16 +11,16 @@ def c_create_cmd(cmd):
     Where 
         cmd[0] - string 'create'
         cmd[1] - contact name
-        cmd[2], cmd[3], - optional: strings 'phones:XXXXXXXXXX,XXXXXXXXXX', 'email:asd@jhg', 'birthday:12.12.2012'
+        cmd[2], cmd[3], - optional: strings 'phones:XXXXXXXXXX,XXXXXXXXXX', 'email:some@dot.com', 'birthday:12.12.2012'
     '''
-    
-    book = ContactBook(load_contacts())
-    
+
+    storage_controller = StorageController()
+    contacts = storage_controller.load_contact_book()
+
     if len(cmd)<2:
-        print("Give me a name and phone!")
+        print(f"{Settings.msg_color}My Lord, you forget enter a name?{Settings.end_color}")
     else:
-        contact = Contact(cmd[1])    
-        book.add_contact(contact)
+        contact = Contact(cmd[1])
         items = cmd[2:]
         for item in items:
             if 'phones' in item:
@@ -30,14 +30,15 @@ def c_create_cmd(cmd):
             elif 'birthday' in item:
                 add_contact_birthday(contact, item)
 
-    answer = input("Add some address? ").lower()
+    answer = input(f"{Settings.msg_color}Add some address? (yes/no) {Settings.end_color}").lower()
     if answer in ["y", "yes"]:
-        address = input("Type some address >> ")
+        address = input(f"{Settings.msg_color}Type some address >> {Settings.end_color}")
         contact.address = address
-        print(contact)
-    else:
-        print("Contact just added!")
-        print(contact)
+
+    print(f"{Settings.success_color}Contact added successfuly!{Settings.end_color}")
+    contacts.add_contact(contact)
+    storage_controller.save_contact_book(contacts)
+    print(contact) #TODO: remove after testing?
 
 
 def add_contact_phones(contact, string_phones:str):
@@ -56,5 +57,3 @@ def add_contact_birthday(contact, string_birthday:str):
     '''Add birthday to contact'''
     birthday = string_birthday[9:]
     contact.birthday = birthday
-    
-    
