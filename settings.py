@@ -15,6 +15,13 @@ class Settings:
     warning_color = Fore.LIGHTYELLOW_EX # warning bot message
     error_color = Fore.LIGHTRED_EX # error bot message
     success_color = Fore.LIGHTGREEN_EX # success bot message
+    notes_color = Fore.YELLOW # color for all user notes
+    shadow_color = Style.DIM # less prominent color for the secondary information
     bg_msg_color = Back.LIGHTBLACK_EX
     end_color = Fore.RESET # end font color tag (required on each line!)
     end_all = Style.RESET_ALL # end font and background color tag
+
+# time delays
+    NOTES_INTRO_DELAY = 0.01
+    NOTES_TITLE_DELAY = 0.015
+    NOTES_BODY_DELAY = 0.03

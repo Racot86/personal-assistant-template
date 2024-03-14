@@ -1,6 +1,6 @@
 import re
 from src.tools.StorageController import StorageController
-from colorama import Fore, Style
+from settings import Settings
 import time
 
 def n_search_cmd(cmd):
@@ -13,39 +13,34 @@ def n_search_cmd(cmd):
             found_notes.append((index, note))
     
     if found_notes:
+        tardis_label = "TARDIS: "
         tardis_text = """
          Decode the notes,
 |-----|  Doctor, I
 |II|II|  hear the echoes
 |II|II|  of distant galaxies...
-|II|II|  It seems to be her,
-|II|II|  ... the TARDIS!
-
-
+|II|II|  Our calculations suggest,
+|II|II|  ... the enemy's spaceship is near!
 
 """
-        for char in tardis_text:
-                print(char, end='', flush=True)
-                time.sleep(0.015)
+        print(f"{tardis_label}", end='')
+        print(f"{Settings.shadow_color}{tardis_text}{Settings.end_all}")
+        time.sleep(Settings.NOTES_INTRO_DELAY)
 
         for idx, note in found_notes:
-            id = f"{Style.BRIGHT}ID:{Style.RESET_ALL} {idx}\n"
-            for char in id:
-                print(char, end='', flush=True)
-                time.sleep(0.01)
+            print(f"{Settings.shadow_color}ID:{Settings.end_all} {idx}")
+            time.sleep(Settings.NOTES_TITLE_DELAY)
             
-            note_title = f"{Style.BRIGHT}Title:{Style.RESET_ALL} {note.title}\n"
-            for char in note_title:
-                print(char, end='', flush=True)
-                time.sleep(0.01)
+            print(f"{Settings.shadow_color}Title:{Settings.end_all} {note.title}")
+            time.sleep(Settings.NOTES_TITLE_DELAY)
 
-            note_body = f"{Style.BRIGHT}Body:{Style.RESET_ALL}\n{Fore.YELLOW}\n{note.body}\n{Fore.RESET}\n"
+            note_body = f"{Settings.shadow_color}Body:{Settings.end_all}\n{Settings.notes_color}\n{note.body}\n{Settings.end_color}\n"
             for char in note_body:
                 print(char, end='', flush=True)
-                time.sleep(0.03)
+                time.sleep(Settings.NOTES_BODY_DELAY)
 
     else:
-        print("No notes found.")
+        print(f"TARDIS:{Settings.error_color} Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
 
 if __name__ == "__main__":
     pass
