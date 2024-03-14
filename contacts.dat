@@ -1,1 +1,2 @@
-[{"name": "C3P0", "birthday": "", "address": "Star Wars", "phones": ["6565656565"], "remark": "", "email": "c3p0@com.ua"}, {"name": "C3P0", "birthday": "", "address": "Star Wars", "phones": ["6565656565"], "remark": "", "email": "c3p0@com.ua"}]
+[{"name": "Dmytro", "birthday": "18-03-1986", "address": "Ukraine", "phones": ["0970279618"], "remark": "team lead", "email": "mayevskydv@gmail.com"},
+{"name": "Hanna", "birthday": "20-03-1995", "address": "Ukraine", "phones": ["0970271111"], "remark": "inspirer", "email": "Hanna_inspirer@gmail.com"}]
