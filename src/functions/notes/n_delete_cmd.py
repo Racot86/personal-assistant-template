@@ -4,6 +4,7 @@ from src.tools.StorageController import StorageController
 '''command to check: notes delete <title>'''
 
 def n_delete_cmd(cmd):
+
     storage = StorageController()
     notes = storage.load_note_book()
     title_to_delete = " ".join(cmd[1:])
@@ -16,3 +17,4 @@ def n_delete_cmd(cmd):
             return
     
     print(f"No note with title '{title_to_delete}' found.")
+
