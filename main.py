@@ -17,11 +17,8 @@ from src.functions.command_controllers.process_notes_command import process_note
 # importing others controller function
 from src.functions.command_controllers.process_others_commans import process_others_command
 # importing tools
-from src.tools.save_contacts import save_contacts
-from src.tools.load_contacts import load_contacts
-from src.tools.save_notes import save_notes
-from src.tools.load_notes import load_notes
 from src.tools.StorageController import StorageController
+from src.tools.a_print import a_print
 
 # defining variables
 move_ln_up = '\033[F'
@@ -33,7 +30,21 @@ def parse_cmd(cmd):
     cmd[0] = cmd[0].lower()
     return cmd
 
-print(f'{Settings.time_color}Doctor, looks like you forget - I am Tardis!{Settings.end_color}')
+
+a_print(f'Doctor, looks like you forget - I am Tardis!',
+        used_colors=[Settings.bg_color,Settings.time_color],
+        prefix='TARDIS: ',
+        prefix_color=Settings.bg_color,
+        main_color=Settings.time_color,
+        speed=0.02,
+        wait_after=0.5
+        )
+a_print(f'If you forget something, ask me using help command.',
+        used_colors=[Settings.bg_color,Settings.time_color],
+        prefix='        ',
+        main_color=Settings.time_color,
+        speed=0.02,
+        )
 
 
 def main():
