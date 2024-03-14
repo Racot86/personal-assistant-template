@@ -9,7 +9,9 @@ import sys
 
 
 def c_show_cmd(cmd):
+
     #print(cmd)
+
     range_days = None
     if not cmd:
         print("Empty command. Please enter a command.")
@@ -24,6 +26,7 @@ def c_show_cmd(cmd):
                 pass
 
         if "all" in cmd and "show" in cmd:
+
             #print("run Show all")
             c_show_all()
         elif "birthdays" in cmd and range_days >= 0:

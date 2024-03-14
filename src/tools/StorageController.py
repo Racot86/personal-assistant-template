@@ -93,7 +93,6 @@ class StorageController:
         else:
             return []
     def save_note_book(self, note_book):
-        print(self.__serialize_note_book(note_book))
         self.__save_serialised_book(self.__serialize_note_book(note_book),'notes.dat')
 
     def __deserialise_note_book(self, book):
