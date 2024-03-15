@@ -25,3 +25,7 @@ class Settings:
     NOTES_INTRO_DELAY = 0.01
     NOTES_TITLE_DELAY = 0.015
     NOTES_BODY_DELAY = 0.03
+
+# prompt colors
+    PROMPT_TEXT_COLOR = 'ansiblue'
+    PROMPT_INPUT_COLOR = 'ansigray'
