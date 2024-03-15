@@ -36,6 +36,21 @@ def o_help_cmd(cmd):
          'description': 'This command searches for a contact by name, phone number or email',  
          'examples': 'contacts search name / contacts search 0630004400 / contacts search test@email.com'  
          },
+          {'cmd': 'create', 
+         'syntax': 'notes create <title> / <body>',  
+         'description': 'add note to note book',  
+         'examples': 'notes create <title: borscht> / <body:Ukrainian Borscht everyone knows'  
+         },
+           {'cmd': 'change',  
+         'syntax': 'notes change <title> / <body>',  
+         'description': 'changes note',  
+         'examples': 'notes change <title: borscht>  enter new title:<new_title>  enter new body:<new_body>'  # examples of command usage
+         },
+           {'cmd': 'delete', 
+         'syntax': 'notes delete <title>',  
+         'description': 'delete note from note book', 
+         'examples': 'notes delete <title:borscht>'  
+         },
 
         # add other command below:)
     ]
