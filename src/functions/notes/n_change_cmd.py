@@ -15,7 +15,8 @@ def n_change_cmd(cmd):
     if not notes.note_exists(title): 
         print(f"{Settings.error_color}Note with provided title not found{Settings.end_color}")
     else:
-        new_title = prompt("Enter new title>", multiline=True, style=style)
+        print("TARDIS: ")
+        new_title = prompt("  Enter new title> ", default=title, style=style)
 
         note = [note for note in notes if note.title == title][0]
         note.title = new_title
