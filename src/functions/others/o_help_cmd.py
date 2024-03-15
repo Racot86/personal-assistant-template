@@ -56,12 +56,12 @@ def o_help_cmd(cmd):
          'examples': 'notes delete <title:borscht>'
          },
         {'cmd': 'notes search',
-         'syntax': 'notes search <all>, notes search <title>, notes search <body>',
+         'syntax': 'notes search, notes search <title>, notes search <body>',
          'description': 'search note in note book',
          'examples': 'notes search, notes search <egg>'
          },
         {'cmd': 'notes show',
-         'syntax': 'notes show <all>, notes show <title>',
+         'syntax': 'notes show, notes show <title>',
          'description': 'show note from note book',
          'examples': 'notes show, notes show <cooking instruction>'
          }
