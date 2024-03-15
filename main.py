@@ -1,6 +1,9 @@
 # importing standard & custom modules
 from prompt_toolkit import prompt
 from datetime import datetime
+
+from prompt_toolkit.completion import WordCompleter
+
 from settings import Settings
 from colorama import Fore
 import os
@@ -20,19 +23,19 @@ from src.functions.command_controllers.process_others_commans import process_oth
 from src.tools.StorageController import StorageController
 from src.tools.a_print import a_print
 from prompt_toolkit.styles import Style
-
+from src.tools.completer_dict import completer
 
 # defining variables
 move_ln_up = '\033[F'
 
-style = Style.from_dict({'': Settings.PROMPT_INPUT_COLOR, 'prompt': Settings.PROMPT_TEXT_COLOR })
+style = Style.from_dict({'': Settings.PROMPT_INPUT_COLOR, 'prompt': Settings.PROMPT_TEXT_COLOR})
+
 
 def parse_cmd(cmd):
     cmd = cmd.strip()
     cmd = cmd.split(' ')
     cmd[0] = cmd[0].lower()
     return cmd
-
 
 
 a_print(f'If you forget something, ask me using help command.',
@@ -47,7 +50,7 @@ def main():
         term_width = os.get_terminal_size().columns
         term_height = os.get_terminal_size().lines
         # print(f"terminal window size: {term_width}x{term_height}")
-        cmd = parse_cmd(prompt('Enter your command: ',style=style))
+        cmd = parse_cmd(prompt('Enter your command: ', style=style, completer=completer()))
         print(move_ln_up, end='')
         print(" " * term_width, end='\r')
         print(
