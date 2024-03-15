@@ -1,9 +1,10 @@
 import time
+from src.tools.cls import cls
 
 CEND = '\33[0m'
 
 
-def a_print(data, prefix='', wait_after=0.1, main_color='', prefix_color='', speed=0.01, end='\n', used_colors=[]):
+def a_print(data, prefix='', wait_after=0.1, main_color='', prefix_color='', speed=0.01, end='\n', used_colors=[],clear_screen=0):
     def find_codes(codes, main_string):
         matches = {}
         for code in codes:
@@ -26,7 +27,11 @@ def a_print(data, prefix='', wait_after=0.1, main_color='', prefix_color='', spe
         else:
             p += 1
         output = prefix_color + prefix + CEND + main_color + data[0: p] + '\u2588' + CEND
+        if clear_screen == 1:
+            cls()
         print(output, end='\r')
+    if clear_screen == 1:
+        cls()
     print(output.replace('\u2588', ' '), end=end)
     time.sleep(wait_after)
 
