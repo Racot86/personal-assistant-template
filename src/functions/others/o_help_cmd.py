@@ -26,15 +26,25 @@ def o_help_cmd(cmd):
          'description': "filters the contact book by birthdays in the next few days",
          'examples': "contacts show Dmitry"
          },
-         {'cmd': 'contacts delete',  
+         {'cmd': 'contacts delete',
          'syntax': 'contacts delete <name>', 
          'description': 'This command deletes the specified contact',  
          'examples': 'contacts delete name'  
          },
-         {'cmd': 'contacts search',  
+         {'cmd': 'contacts search',
          'syntax': 'contacts search <name> / contacts search <phone> / contacts search <email>', 
          'description': 'This command searches for a contact by name, phone number or email',  
          'examples': 'contacts search name / contacts search 0630004400 / contacts search test@email.com'  
+         },
+         {'cmd': 'contacts create',
+         'syntax': 'contacts create <contact name> <email:xxxx@xxxx.xx> <phones:1234567890,1234567890> <birthday:dd-mm-YYYY>',
+         'description': 'This command for create a new contact',
+         'examples': 'contacts create Who,Doctor email:who@doctor.com phones:0991112233'
+         },
+         {'cmd': 'contacts change',
+         'syntax': 'contacts change <contact name> ENTER or <email:xxxx@xxxx.xx> <phones:1234567890,1234567890> <birthday:dd-mm-YYYY>',
+         'description': 'This command for change a contact data',
+         'examples': 'contacts change Who,Doctor email:doctor@who.com phones:0993211122'
          },
 
         # add other command below:)

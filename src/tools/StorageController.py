@@ -14,26 +14,19 @@ class StorageController:
         self.note_book = NoteBook()
 
     def __serialise_contact_book(self, data):
-        if len(data) > 0:
-            serialised_contact_book = []
-            serialised_contact = {'name': '',
-                                  'birthday': '',
-                                  'address': '',
-                                  'phones': [],
-                                  'remark': '',
-                                  'email': ''
-                                  }
-            for contact in data:
-                serialised_contact['name'] = contact.name
-                serialised_contact['birthday'] = contact.birthday
-                serialised_contact['address'] = contact.address
-                serialised_contact['phones'] = contact.phones
-                serialised_contact['remark'] = contact.remark
-                serialised_contact['email'] = contact.email
-                serialised_contact_book.append(serialised_contact)
-            return serialised_contact_book
-        else:
-            return []
+        serialised_contact_book = []
+        for contact in data:
+            serialised_contact_book.append(
+                {
+                    'name': contact.name,
+                    'birthday': contact.birthday,
+                    'address': contact.address,
+                    'phones': contact.phones,
+                    'remark': contact.remark,
+                    'email': contact.email,
+                }
+            )
+        return serialised_contact_book
 
     def __save_serialised_book(self, contact_book, file_name):
         if len(contact_book) > 0:
@@ -45,7 +38,7 @@ class StorageController:
 
     def save_contact_book(self, contact_book: ContactBook):
         if contact_book.size() > 0:
-            self.__save_serialised_book(self.__serialise_contact_book(contact_book), 'contacts.dat')
+            self.__save_serialised_book(self.__serialise_contact_book(contact_book.data), 'contacts.dat')
 
     def __load_serialised_book(self, file_name):
         if Path.is_file(Path(file_name)):
@@ -79,19 +72,18 @@ class StorageController:
         if len(note_book) > 0:
             deserialised_list = []
             for itm in note_book:
-                item = {'title': '',
-                        'body': '',
-                        'time': '',
-                        'tags': [],
-                        }
-                item['title'] = itm.title
-                item['body'] = itm.body
-                item['time'] = itm.time
-                item['tags'] = itm.tags
-                deserialised_list.append(item)
+                deserialised_list.append(
+                    {
+                        'title': itm.title,
+                        'body': itm.body,
+                        'time': itm.time,
+                        'tags': itm.tags,
+                    }
+                )
             return deserialised_list
         else:
             return []
+
     def save_note_book(self, note_book):
         self.__save_serialised_book(self.__serialize_note_book(note_book),'notes.dat')
 

@@ -41,7 +41,7 @@ def c_create_cmd(cmd):
             print(f"{Settings.success_color}Contact added successfuly!{Settings.end_color}")
             contacts.add_contact(contact)
             storage_controller.save_contact_book(contacts)
-            print(contact) #TODO: remove after testing?
+            print(contacts) #TODO: remove after testing?
 
 
 
