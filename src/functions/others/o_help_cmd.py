@@ -7,12 +7,17 @@ def o_help_cmd(cmd):
         {'cmd': 'notes filter by tag',
          'syntax': 'notes filter by tag <insert any number of tags with # and space between>',
          'description': 'This command searches and displays notes filtered by given tags',
-         'examples': 'notes filter by tag #test'
+         'examples': 'notes filter by tag #test, notes filter by tag #test #dummy'
          },
-        {'cmd': '',  # name of command. I will use this field for search
-         'syntax': '',  # how to call command properly
-         'description': '',  # Explanation what this command does
-         'examples': ''  # examples of command usage
+        {'cmd': 'about',  # name of command. I will use this field for search
+         'syntax': 'about',  # how to call command properly
+         'description': 'Information about app',  # Explanation what this command does
+         'examples': 'about'  # examples of command usage
+         },
+        {'cmd': 'war statistics',  # name of command. I will use this field for search
+         'syntax': 'war statistics today/war statistics mm-dd-yyyy',  # how to call command properly
+         'description': 'Get statistics about war in Ukraine',  # Explanation what this command does
+         'examples': 'war statistics today, war statistics 14-03-2022'  # examples of command usage
          },
         {'cmd': "contacts show all",
          'syntax': "command does not require any additional parameters, it is used as is",
@@ -24,10 +29,10 @@ def o_help_cmd(cmd):
          'description': "This command searches and displays contacts filtered by birthdays in the next few days",
          'examples': "contacts show Dmitry"
          },
-        {'cmd': "contacts show birthdays <range>",
-         'syntax': "filters the contact book by birthdays in the next <range> days",
+        {'cmd': "contacts show birthdays",
+         'syntax': "contacts show birthdays <range> days",
          'description': "filters the contact book by birthdays in the next few days",
-         'examples': "contacts show Dmitry"
+         'examples': "contacts show birthdays 7 days"
          },
         {'cmd': 'contacts delete',
          'syntax': 'contacts delete <name>',
@@ -48,7 +53,7 @@ def o_help_cmd(cmd):
          'syntax': 'notes change <title> / <body>',
          'description': 'changes note',
          'examples': 'notes change <title: borscht>  enter new title:<new_title>  enter new body:<new_body>'
-         # examples of command usage
+
          },
         {'cmd': 'notes delete',
          'syntax': 'notes delete <title>',
@@ -63,7 +68,7 @@ def o_help_cmd(cmd):
         {'cmd': 'notes show',
          'syntax': 'notes show, notes show <title>',
          'description': 'show note from note book',
-         'examples': 'notes show, notes show <cooking instruction>'
+         'examples': 'notes show, notes show cooking instruction'
          }
     ]
 
