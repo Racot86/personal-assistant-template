@@ -55,8 +55,16 @@ def o_help_cmd(cmd):
          'description': 'delete note from note book',
          'examples': 'notes delete <title:borscht>'
          },
-
-        # add other command below:)
+        {'cmd': 'notes search',
+         'syntax': 'notes search <all>, notes search <title>, notes search <body>',
+         'description': 'search note in note book',
+         'examples': 'notes search, notes search <egg>'
+         },
+        {'cmd': 'notes show',
+         'syntax': 'notes show <all>, notes show <title>',
+         'description': 'show note from note book',
+         'examples': 'notes show, notes show <cooking instruction>'
+         }
     ]
 
     if len(cmd) == 1:
