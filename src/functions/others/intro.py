@@ -1,3 +1,6 @@
+import time
+from src.tools.cls import cls
+from settings import Settings
 
 dw = '''
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣴⣾⣷⣦⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -57,3 +60,14 @@ dalek = """
         ⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟
 
 """
+
+
+def intro():
+    cls()
+
+    for line in dw.splitlines():
+        print(Settings.msg_color + line + Settings.end_all)
+        time.sleep(0.2)
+
+    time.sleep(1)
+    cls()

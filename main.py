@@ -1,24 +1,15 @@
 # importing standard & custom modules
 from prompt_toolkit import prompt
-from datetime import datetime
-
-from prompt_toolkit.completion import WordCompleter
-
 from settings import Settings
-from colorama import Fore
-import os
 
-#  import classes
-from src.classes.class_Note import Note
-from src.classes.class_NoteBook import NoteBook
-from src.classes.class_Contact import Contact
-from src.classes.class_ContactBook import ContactBook
+import os
 # importing contacts controller function
 from src.functions.command_controllers.process_contacts_command import process_contacts_command
 # importing notes controller function
 from src.functions.command_controllers.process_notes_command import process_notes_command
 # importing others controller function
 from src.functions.command_controllers.process_others_commans import process_others_command
+from src.functions.others.intro import intro
 # importing tools
 from src.tools.StorageController import StorageController
 from src.tools.a_print import a_print
@@ -37,6 +28,7 @@ def parse_cmd(cmd):
     cmd[0] = cmd[0].lower()
     return cmd
 
+intro()
 
 a_print(f'If you forget something, ask me using help command.',
         used_colors=[Settings.msg_color],
