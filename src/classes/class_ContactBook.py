@@ -5,21 +5,14 @@ from src.classes.class_Contact import Contact
 class ContactBook(UserList):
 
     def contact_exists(self, name: str):
-        match = 0
         for contact in self.data:
             if contact.name == name:
-                match = 1
-        if match == 0:
-            return False
-        else:
-            return True
+                return True
+        return False
 
     def add_contact(self, value: Contact):
-        if isinstance(value, Contact) and not self.contact_exists(value.name):
-            self.data.append(value)
-            return True
-        else:
-            return False
+        self.data.append(value)
+
 
     def __str__(self):
         names_list = []
