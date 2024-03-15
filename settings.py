@@ -29,3 +29,4 @@ class Settings:
 # prompt colors
     PROMPT_TEXT_COLOR = 'ansiblue'
     PROMPT_INPUT_COLOR = 'ansigray'
+    PROMPT_NOTE_COLOR = 'ansiyellow'
