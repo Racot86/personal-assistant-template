@@ -2,17 +2,19 @@ from src.tools.StorageController import StorageController
 from src.classes.class_Note import Note
 from src.classes.class_NoteBook import NoteBook
 from prompt_toolkit import prompt
+from src.tools.a_print import a_print
+from settings import Settings
 
 
 def print_list(match, search_criteria):
     if len(match) > 0:
-        n = 1
-        print(f"    Tardis: Look, where I found tag(s) {' '.join(search_criteria)}")
-        for note in match:
-            print(f'            {n} {note.title}')
-            n += 1
+        a_print('This is what I found for ' + ' '.join(search_criteria), main_color=Settings.msg_color,
+                prefix='TARDIS: ')
+        for itm in match:
+            a_print(f"  '{itm}' present in <{'> <'.join(match[itm])}> note(s)")
+
     else:
-        print(f'    Sir, I did not find any notes with {" ".join(search_criteria)}')
+        a_print(f'Sir, there are no matches for your request', prefix='TARDIS: ', main_color=Settings.warning_color)
 
 
 def n_filter_cmd(cmd):
@@ -22,21 +24,33 @@ def n_filter_cmd(cmd):
         cmd.pop(0)
         cmd.pop(0)
         cmd.pop(0)
-        match_list = []
-        for note in notes:
-            if len(note.tags) > 0:
-                for tag in note.tags:
-                    for search_tag in cmd:
-                        if tag.lower() == search_tag.lower():
-                            match_list.append(note)
-                            continue
+        validated_list = []
+        for itm in cmd:
+            if itm[0] == '#' and len(itm) > 1:
+                validated_list.append(itm)
+        if len(validated_list) > 0:
+            sorted_dict = {}
+            for itm in validated_list:
+                for note in notes:
+                    for tag in note.tags:
+                        if tag.lower() == itm.lower():
+                            sorted_dict[itm] = []
+            for tag in sorted_dict:
+                for note in notes:
+                    if tag in note.tags:
+                        if note.title not in sorted_dict[tag]:
+                            sorted_dict[tag].append(note.title)
 
-            else:
-                continue
+            print_list(sorted_dict, validated_list)
 
-        print_list(match_list, cmd)
-
+        else:
+            a_print(f'Check you input data.For your information tags are starting with # character must be at least two characters long',
+                    prefix='TARDIS: ',
+                    main_color=Settings.warning_color
+                    )
 
     else:
-        print('     Tardis: Doctor, are you Ok? Check what you are typing!')
-
+        a_print(f'Doctor, are you Ok? Check what you are typing!',
+                prefix='TARDIS: ',
+                main_color=Settings.warning_color
+                )
