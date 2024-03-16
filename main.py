@@ -12,11 +12,11 @@ from src.functions.command_controllers.process_others_commans import process_oth
 from src.functions.others.intro import intro
 # importing tools
 from src.tools.StorageController import StorageController
-from src.tools.a_print import a_print
 from prompt_toolkit.styles import Style
 from src.tools.completer_dict import completer
-
+from src.tools.a_print import a_print
 # defining variables
+
 move_ln_up = '\033[F'
 
 style = Style.from_dict({'': Settings.PROMPT_INPUT_COLOR, 'prompt': Settings.PROMPT_TEXT_COLOR})

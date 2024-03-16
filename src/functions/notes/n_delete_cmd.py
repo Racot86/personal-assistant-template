@@ -1,6 +1,7 @@
 '''Notes delete command'''
 from src.tools.StorageController import StorageController
 from settings import Settings
+from src.tools.a_print import a_print
 
 '''command to check: notes delete <title>'''
 
@@ -13,9 +14,9 @@ def n_delete_cmd(cmd):
     for note in notes:
         if note.title == title_to_delete:
             notes.remove(note)
-            print(f"{Settings.success_color}Note '{note.title}' deleted successfully!{Settings.end_all}")
+            a_print(f"Note '{note.title}' deleted successfully!", prefix="TARDIS: ", main_color=Settings.success_color)
             storage.save_note_book(notes)
             return
     
-    print(f"{Settings.error_color}No note with title '{title_to_delete}' found!{Settings.end_all}")
+    a_print(f"No note with title '{title_to_delete}' found!", prefix="TARDIS: ", main_color=Settings.error_color)
 
