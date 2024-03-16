@@ -29,7 +29,7 @@ class StorageController:
         return serialised_contact_book
 
     def __save_serialised_book(self, contact_book, file_name):
-        if len(contact_book) > 0:
+        if len(contact_book) >= 0:
             with open(file_name, 'w') as fh:
                 fh.write(json.dumps(contact_book))
         else:
@@ -37,7 +37,7 @@ class StorageController:
                 os.remove(file_name)
 
     def save_contact_book(self, contact_book: ContactBook):
-        if contact_book.size() > 0:
+        if contact_book.size() >= 0:
             self.__save_serialised_book(self.__serialise_contact_book(contact_book.data), 'contacts.dat')
 
     def __load_serialised_book(self, file_name):
