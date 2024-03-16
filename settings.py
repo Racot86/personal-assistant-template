@@ -11,7 +11,7 @@ class Settings:
 # input_color, msg_color, warning_color, error_color
     style_bold = Style.BRIGHT # Some bolder text
     msg_color = Fore.CYAN # regular bot message
-    input_color = Fore.WHITE # user input color
+    input_color = Fore.CYAN # user input color
     warning_color = Fore.LIGHTYELLOW_EX # warning bot message
     error_color = Fore.LIGHTRED_EX # error bot message
     success_color = Fore.LIGHTGREEN_EX # success bot message
@@ -20,6 +20,7 @@ class Settings:
     bg_msg_color = Back.LIGHTBLACK_EX
     end_color = Fore.RESET # end font color tag (required on each line!)
     end_all = Style.RESET_ALL # end font and background color tag
+    __tardis_name_color = Fore.CYAN # color for the "TARDIS:" name
 
 # time delays
     NOTES_INTRO_DELAY = 0.01
@@ -31,3 +32,6 @@ class Settings:
     PROMPT_INPUT_COLOR = 'ansigray'
     PROMPT_NOTE_COLOR = 'ansiyellow'
     PROMPT_TARDIS_COLOR = 'ansiwhite'
+
+# tardis settings
+    TARDIS = f"{__tardis_name_color}TARDIS: {end_color}"
