@@ -19,7 +19,7 @@ from src.tools.completer_dict import completer
 # defining variables
 move_ln_up = '\033[F'
 
-style = Style.from_dict({'': Settings.PROMPT_INPUT_COLOR, 'prompt': Settings.PROMPT_TEXT_COLOR})
+style = Style.from_dict({'': Settings.PROMPT_TEXT_COLOR, 'prompt': Settings.PROMPT_TEXT_COLOR})
 
 
 def parse_cmd(cmd):

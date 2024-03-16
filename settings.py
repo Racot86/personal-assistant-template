@@ -30,3 +30,4 @@ class Settings:
     PROMPT_TEXT_COLOR = 'ansiblue'
     PROMPT_INPUT_COLOR = 'ansigray'
     PROMPT_NOTE_COLOR = 'ansiyellow'
+    PROMPT_TARDIS_COLOR = 'ansiwhite'
