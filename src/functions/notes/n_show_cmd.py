@@ -1,6 +1,7 @@
 from src.tools.StorageController import StorageController
 from colorama import Fore, Style
 from settings import Settings
+from src.tools.a_print import a_print
 import time
 
 def n_show_cmd(cmd):
@@ -48,7 +49,7 @@ def n_show_cmd(cmd):
                     break
 
             if not note_found:
-                print(f"{Settings.TARDIS}{Settings.error_color}Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
+                a_print(f"Currently adrift in silence, my archives yield no tales.", prefix = Settings.TARDIS, main_color=Settings.error_color)
     
     else:
-        print(f"{Settings.TARDIS}{Settings.error_color} Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
+        a_print(f"Currently adrift in silence, my archives yield no tales.", prefix = Settings.TARDIS, main_color=Settings.error_color)
