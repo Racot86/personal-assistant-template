@@ -11,7 +11,7 @@ def c_create_cmd(cmd):
     Where 
         cmd[0] - string 'create'
         cmd[1] - contact name
-        cmd[2], cmd[3], - optional: strings 'phones:XXXXXXXXXX,XXXXXXXXXX', 'email:some@dot.com', 'birthday:12.12.2012'
+        cmd[2], cmd[3], - optional: strings 'phones:XXXXXXXXXX,XXXXXXXXXX', 'email:some@dot.com', 'birthday:12.12.2012, remark:some remark'
     '''
 
     storage_controller = StorageController()
@@ -37,6 +37,10 @@ def c_create_cmd(cmd):
                         errors.append(response)
                 elif 'birthday' in item:
                     response = add_contact_birthday(contact, item)
+                    if len(response)>0:
+                        errors.append(response)
+                elif 'remark' in item:
+                    response = add_contact_remark(contact, item)
                     if len(response)>0:
                         errors.append(response)
 
@@ -82,4 +86,13 @@ def add_contact_birthday(contact, string_birthday:str):
     error = ''
     if contact.birthday=='':
         error = 'birthday'
+    return error
+
+def add_contact_remark(contact, remark:str):
+    '''Add remark to contact'''
+    remark = remark[7:]
+    contact.remark = remark
+    error = ''
+    if contact.remark=='':
+        error = 'remark'
     return error
