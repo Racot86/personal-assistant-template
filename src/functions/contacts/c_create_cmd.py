@@ -4,6 +4,7 @@
 from src.tools.StorageController import StorageController
 from src.classes.class_Contact import Contact
 from settings import Settings
+from src.tools.a_print import a_print
 
 def c_create_cmd(cmd):
     '''
@@ -18,10 +19,10 @@ def c_create_cmd(cmd):
     contacts = storage_controller.load_contact_book()
 
     if len(cmd)<2:
-        print(f"TARDIS: {Settings.msg_color}My Lord, you forget enter a name?{Settings.end_color}")
+        a_print(f"My Lord, you forget enter a name?", prefix = Settings.TARDIS, main_color=Settings.warning_color)
     else:
         if contacts.contact_exists(cmd[1]):
-            print(f"TARDIS: {Settings.error_color}Entry already exists, my Lord!{Settings.end_color}")
+            a_print(f"But I see the entry already exists, my Lord!", prefix = Settings.TARDIS, main_color=Settings.error_color)
         else:
             contact = Contact(cmd[1])
             items = cmd[2:]
@@ -53,7 +54,7 @@ def c_create_cmd(cmd):
                     address = input(f"TARDIS: {Settings.msg_color}Type some address: {Settings.end_color}")
                     contact.address = address
 
-                print(f"TARDIS: {Settings.success_color}Contact added successfuly!{Settings.end_color}")
+                a_print(f"Contact added successfuly!", prefix = Settings.TARDIS, main_color=Settings.success_color)
                 contacts.add_contact(contact)
                 storage_controller.save_contact_book(contacts)
 

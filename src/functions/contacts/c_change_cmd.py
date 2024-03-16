@@ -4,6 +4,7 @@ from src.tools.StorageController import StorageController
 from settings import Settings
 from prompt_toolkit.completion import NestedCompleter
 from prompt_toolkit import prompt
+from src.tools.a_print import a_print
 from prompt_toolkit.styles import Style
 
 completer = NestedCompleter.from_nested_dict({
@@ -33,7 +34,7 @@ def c_change_cmd(cmd):
     contacts = storage_controller.load_contact_book()
     if len(cmd) < 2:
         # cmd isn't contains a name
-        print(f"TARDIS: {Settings.warning_color}My Lord, you forget enter a name?{Settings.end_color}")
+        a_print(f"My Lord, you forget enter a name?", prefix = Settings.TARDIS, main_color=Settings.warning_color)
     else:
         contact = contacts.get_contact(cmd[1])
         is_contact_change = False
@@ -41,39 +42,34 @@ def c_change_cmd(cmd):
             if len(cmd) == 2:
                 # cmd contains only name of searching contact
                 print(f"TARDIS:")
-                value = prompt(f"  What you want to change? phones, email, address, birthday or remark? ",complete_while_typing=True, completer=completer, style=style)
+                value = prompt(f"  What you want to change? phones, email, address, birthday or remark? ", complete_while_typing=True, completer=completer, style=style)
                 if 'phones' in value.lower():
                     phones = input(
                         f"TARDIS: {Settings.msg_color}Ok, input phone or phones by comma: {Settings.end_color}")
                     contact.phones = phones.split(',')
-                    is_contact_change = True
-                    print(f"TARDIS: {Settings.success_color}New phone saved, my Lord!{Settings.end_color}")
+                    is_contact_change = contact.phones == phones.split(',')
                 elif 'email' in value.lower():
                     email = input(f"TARDIS: {Settings.msg_color}Ok, input email: {Settings.end_color}")
                     contact.email = email
-                    is_contact_change = True
-                    print(f"TARDIS: {Settings.success_color}New email saved, my Lord!{Settings.end_color}")
+                    is_contact_change = contact.email == email
                 elif 'birthday' in value.lower():
                     birthday = input(
                         f"TARDIS: {Settings.msg_color}Ok, input birthday in next format 23-10-2005: {Settings.end_color}")
                     contact.birthday = birthday
-                    is_contact_change = True
-                    print(f"TARDIS: {Settings.success_color}New birthday saved, my Lord!{Settings.end_color}")
+                    is_contact_change = contact.birthday == birthday
                 elif 'address' in value.lower():
                     address = input(f"TARDIS: {Settings.msg_color}Ok, input address: {Settings.end_color}")
                     contact.address = address
-                    is_contact_change = True
-                    print(f"TARDIS: {Settings.success_color}New address saved, my Lord!{Settings.end_color}")
+                    is_contact_change = contact.address == address
                 elif 'remark' in value.lower():
                     remark = input(f"TARDIS: {Settings.msg_color}Ok, input remark: {Settings.end_color}")
                     contact.remark = remark
-                    is_contact_change = True
-                    print(f"TARDIS: {Settings.success_color}New remark saved, my Lord!{Settings.end_color}")
+                    is_contact_change = contact.remark == remark
                 else:
-                    print(
-                        f"TARDIS: {Settings.error_color}Sorry, my Lord, I can't recognize this command...{Settings.end_color}")
+                    a_print(f"Sorry, my Lord, I can't recognize this command...", prefix = Settings.TARDIS, main_color=Settings.error_color)
             if is_contact_change:
                 storage_controller = StorageController()
                 storage_controller.save_contact_book(contacts)
+                a_print(f"Your's changes is currently added, my Lord!", prefix = Settings.TARDIS, main_color=Settings.success_color)
         else:
-            print(f"TARDIS: {Settings.error_color}Sorry, my Lord, but contact is not found..{Settings.end_color}")
+            a_print(f"Sorry, my Lord, but contact is not found..", prefix = Settings.TARDIS, main_color=Settings.error_color)
