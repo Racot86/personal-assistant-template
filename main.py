@@ -32,7 +32,7 @@ def parse_cmd(cmd):
 
 a_print(f'If you forget something, ask me using help command.',
         used_colors=[Settings.msg_color],
-        prefix='TARDIS: ',
+        prefix=Settings.TARDIS,
         main_color=Settings.msg_color,
         )
 

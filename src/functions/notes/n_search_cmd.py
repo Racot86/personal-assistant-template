@@ -13,7 +13,7 @@ def n_search_cmd(cmd):
             found_notes.append((index, note))
     
     if found_notes:
-        tardis_label = "TARDIS: "
+        tardis_label = Settings.TARDIS
         tardis_text = """
          Decode the notes,
 |-----|  Doctor, I
@@ -40,7 +40,7 @@ def n_search_cmd(cmd):
                 time.sleep(Settings.NOTES_BODY_DELAY)
 
     else:
-        print(f"TARDIS:{Settings.error_color} Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
+        print(f"{Settings.TARDIS}{Settings.error_color} Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
 
 if __name__ == "__main__":
     pass

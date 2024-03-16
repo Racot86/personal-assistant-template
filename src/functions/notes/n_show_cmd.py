@@ -10,7 +10,7 @@ def n_show_cmd(cmd):
     note_found = False
 
     if notes.data:
-        tardis_label = "TARDIS: "
+        tardis_label = Settings.TARDIS
         tardis_text = """
            Across the streams of time,
 |-----|    in the vast library of the universe,
@@ -48,7 +48,7 @@ def n_show_cmd(cmd):
                     break
 
             if not note_found:
-                print(f"TARDIS: {Settings.error_color}Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
+                print(f"{Settings.TARDIS}{Settings.error_color}Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
     
     else:
-        print(f"TARDIS:{Settings.error_color} Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
+        print(f"{Settings.TARDIS}{Settings.error_color} Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
