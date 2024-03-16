@@ -28,7 +28,7 @@ def parse_cmd(cmd):
     cmd[0] = cmd[0].lower()
     return cmd
 
-intro()
+# intro()
 
 a_print(f'If you forget something, ask me using help command.',
         used_colors=[Settings.msg_color],
