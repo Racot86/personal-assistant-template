@@ -1,6 +1,7 @@
 import re
 from src.tools.StorageController import StorageController
 from settings import Settings
+from src.tools.a_print import a_print
 import time
 
 def n_search_cmd(cmd):
@@ -40,7 +41,7 @@ def n_search_cmd(cmd):
                 time.sleep(Settings.NOTES_BODY_DELAY)
 
     else:
-        print(f"{Settings.TARDIS}{Settings.error_color} Currently adrift in silence, my archives yield no tales.{Settings.end_color}\n")
+        a_print(f"Currently adrift in silence, my archives yield no tales.", prefix = Settings.TARDIS, main_color=Settings.error_color)
 
 if __name__ == "__main__":
     pass
