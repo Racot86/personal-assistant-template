@@ -9,7 +9,7 @@ def c_delete_cmd(cmd):
     storage = StorageController()
     contacts = storage.load_contact_book()
 
-    contact_name = cmd[1]
+    contact_name = cmd[1].lower()
     contact = contacts.get_contact(contact_name)
     if contact:
         contacts.delete_contact(contact)
