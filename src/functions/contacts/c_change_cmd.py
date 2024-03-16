@@ -25,22 +25,22 @@ def c_change_cmd(cmd):
                 if 'phones' in value.lower():
                     phones = input(f"TARDIS: {Settings.msg_color}Ok, input phone or phones by comma: {Settings.end_color}")
                     contact.phones = phones.split(',')
-                    save(contacts, contact)
+                    save(contacts)
                     print(f"TARDIS: {Settings.success_color}New phone saved, my Lord!{Settings.end_color}")
                 elif 'email' in value.lower():
                     email = input(f"TARDIS: {Settings.msg_color}Ok, input email: {Settings.end_color}")
                     contact.email = email
-                    save(contacts, contact)
+                    save(contacts)
                     print(f"TARDIS: {Settings.success_color}New email saved, my Lord!{Settings.end_color}")
                 elif 'birthday' in value.lower():
                     birthday = input(f"TARDIS: {Settings.msg_color}Ok, input birthday in next format 23-10-2005: {Settings.end_color}")
                     contact.birthday = birthday
-                    save(contacts, contact)
+                    save(contacts)
                     print(f"TARDIS: {Settings.success_color}New birthday saved, my Lord!{Settings.end_color}")
                 elif 'address' in value.lower():
                     address = input(f"TARDIS: {Settings.msg_color}Ok, input address: {Settings.end_color}")
                     contact.address = address
-                    save(contacts, contact)
+                    save(contacts)
                     print(f"TARDIS: {Settings.success_color}New address saved, my Lord!{Settings.end_color}")
                 else:
                     print(f"TARDIS: {Settings.error_color}Sorry, my Lord, I can't recognize this command...{Settings.end_color}")
@@ -48,8 +48,7 @@ def c_change_cmd(cmd):
             print(f"TARDIS: {Settings.error_color}Sorry, my Lord, but contact is not found..{Settings.end_color}")
 
 
-def save(contacts, contact):
+def save(contacts):
     '''Save contacts on disk'''
     storage_controller = StorageController()
-    contacts.add_contact(contact)
     storage_controller.save_contact_book(contacts)
