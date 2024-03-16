@@ -2,6 +2,24 @@
 
 from src.tools.StorageController import StorageController
 from settings import Settings
+from prompt_toolkit.completion import NestedCompleter
+from prompt_toolkit import prompt
+from prompt_toolkit.styles import Style
+
+completer = NestedCompleter.from_nested_dict({
+    'phones': None,
+    'emails': None,
+    'address': None,
+    'remark': None,
+    'birthday': None
+})
+
+
+style = Style.from_dict({
+    '': Settings.PROMPT_INPUT_COLOR,
+    'prompt': Settings.PROMPT_TEXT_COLOR
+})
+
 
 def c_change_cmd(cmd):
     '''
@@ -22,9 +40,11 @@ def c_change_cmd(cmd):
         if contact is not False:
             if len(cmd) == 2:
                 # cmd contains only name of searching contact
-                value = input(f"TARDIS: {Settings.msg_color}What you want to change? Phones, email, address, birthday or remark? {Settings.end_color}")
+                print(f"TARDIS:")
+                value = prompt(f"  What you want to change? phones, email, address, birthday or remark? ",complete_while_typing=True, completer=completer, style=style)
                 if 'phones' in value.lower():
-                    phones = input(f"TARDIS: {Settings.msg_color}Ok, input phone or phones by comma: {Settings.end_color}")
+                    phones = input(
+                        f"TARDIS: {Settings.msg_color}Ok, input phone or phones by comma: {Settings.end_color}")
                     contact.phones = phones.split(',')
                     is_contact_change = True
                     print(f"TARDIS: {Settings.success_color}New phone saved, my Lord!{Settings.end_color}")
@@ -34,7 +54,8 @@ def c_change_cmd(cmd):
                     is_contact_change = True
                     print(f"TARDIS: {Settings.success_color}New email saved, my Lord!{Settings.end_color}")
                 elif 'birthday' in value.lower():
-                    birthday = input(f"TARDIS: {Settings.msg_color}Ok, input birthday in next format 23-10-2005: {Settings.end_color}")
+                    birthday = input(
+                        f"TARDIS: {Settings.msg_color}Ok, input birthday in next format 23-10-2005: {Settings.end_color}")
                     contact.birthday = birthday
                     is_contact_change = True
                     print(f"TARDIS: {Settings.success_color}New birthday saved, my Lord!{Settings.end_color}")
@@ -49,7 +70,8 @@ def c_change_cmd(cmd):
                     is_contact_change = True
                     print(f"TARDIS: {Settings.success_color}New remark saved, my Lord!{Settings.end_color}")
                 else:
-                    print(f"TARDIS: {Settings.error_color}Sorry, my Lord, I can't recognize this command...{Settings.end_color}")
+                    print(
+                        f"TARDIS: {Settings.error_color}Sorry, my Lord, I can't recognize this command...{Settings.end_color}")
             if is_contact_change:
                 storage_controller = StorageController()
                 storage_controller.save_contact_book(contacts)
