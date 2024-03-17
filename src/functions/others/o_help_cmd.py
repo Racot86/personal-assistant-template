@@ -4,20 +4,25 @@ from src.tools.a_print import a_print
 
 def o_help_cmd(cmd):
     help_list = [
-        {'cmd': 'notes filter by tag',
-         'syntax': 'notes filter by tag <insert any number of tags with # and space between>',
-         'description': 'This command searches and displays notes filtered by given tags',
-         'examples': 'notes filter by tag #test, notes filter by tag #test #dummy'
+        {'cmd': 'contacts create',
+         'syntax': '',
+         'description': '',
+         'examples': ''
          },
-        {'cmd': 'about',  # name of command. I will use this field for search
-         'syntax': 'about',  # how to call command properly
-         'description': 'Information about app',  # Explanation what this command does
-         'examples': 'about'  # examples of command usage
+        {'cmd': 'contacts change',
+         'syntax': '',
+         'description': '',
+         'examples': ''
          },
-        {'cmd': 'war statistics',  # name of command. I will use this field for search
-         'syntax': 'war statistics today/war statistics mm-dd-yyyy',  # how to call command properly
-         'description': 'Get statistics about war in Ukraine',  # Explanation what this command does
-         'examples': 'war statistics today, war statistics 14-03-2022'  # examples of command usage
+        {'cmd': 'contacts delete',
+         'syntax': 'contacts delete <name>',
+         'description': 'This command deletes the specified contact',
+         'examples': 'contacts delete name'
+         },
+        {'cmd': 'contacts search',
+         'syntax': 'contacts search <name> / contacts search <phone> / contacts search <email>',
+         'description': 'This command searches for a contact by name, phone number or email',
+         'examples': 'contacts search name / contacts search 0630004400 / contacts search test@email.com'
          },
         {'cmd': "contacts show all",
          'syntax': "command does not require any additional parameters, it is used as is",
@@ -34,16 +39,6 @@ def o_help_cmd(cmd):
          'description': "filters the contact book by birthdays in the next few days",
          'examples': "contacts show birthdays 7 days"
          },
-        {'cmd': 'contacts delete',
-         'syntax': 'contacts delete <name>',
-         'description': 'This command deletes the specified contact',
-         'examples': 'contacts delete name'
-         },
-        {'cmd': 'contacts search',
-         'syntax': 'contacts search <name> / contacts search <phone> / contacts search <email>',
-         'description': 'This command searches for a contact by name, phone number or email',
-         'examples': 'contacts search name / contacts search 0630004400 / contacts search test@email.com'
-         },
         {'cmd': 'notes create',
          'syntax': 'notes create <title> / <body>',
          'description': 'add note to note book',
@@ -53,7 +48,6 @@ def o_help_cmd(cmd):
          'syntax': 'notes change <title> / <body>',
          'description': 'changes note',
          'examples': 'notes change <title: borscht>  enter new title:<new_title>  enter new body:<new_body>'
-
          },
         {'cmd': 'notes delete',
          'syntax': 'notes delete <title>',
@@ -69,6 +63,31 @@ def o_help_cmd(cmd):
          'syntax': 'notes show, notes show <title>',
          'description': 'show note from note book',
          'examples': 'notes show, notes show cooking instruction'
+         },
+         {'cmd': 'notes filter by tag',
+         'syntax': 'notes filter by tag <insert any number of tags with # and space between>',
+         'description': 'This command searches and displays notes filtered by given tags',
+         'examples': 'notes filter by tag #test, notes filter by tag #test #dummy'
+         },
+        {'cmd': 'about',  # name of command. I will use this field for search
+         'syntax': 'about',  # how to call command properly
+         'description': 'Information about app',  # Explanation what this command does
+         'examples': 'about'  # examples of command usage
+         },
+        {'cmd': 'hello',
+         'syntax': '',
+         'description': '',
+         'examples': ''
+         },
+        {'cmd': 'help',
+         'syntax': '',
+         'description': '',
+         'examples': ''
+         },
+        {'cmd': 'war statistics',  # name of command. I will use this field for search
+         'syntax': 'war statistics today/war statistics mm-dd-yyyy',  # how to call command properly
+         'description': 'Get statistics about war in Ukraine',  # Explanation what this command does
+         'examples': 'war statistics today, war statistics 14-03-2022'  # examples of command usage
          }
     ]
 
