@@ -9,9 +9,9 @@ def c_delete_cmd(cmd):
     storage = StorageController()
     contacts = storage.load_contact_book()
 
-    contact_name = cmd[1].lower()
+    contact_name = cmd[1]
     contact = contacts.get_contact(contact_name)
-    if contact:
+    if contact is not False:
         contacts.delete_contact(contact)
         storage.save_contact_book(contacts)
         print(f"{Settings.success_color}Enemy '{contact_name}' is defeated by being destroyed.")        
