@@ -4,18 +4,18 @@ from src.tools.a_print import a_print
 
 def o_help_cmd(cmd):
     help_list = [
-        {'cmd': 'contacts create',
-         'syntax': '',
-         'description': '',
-         'examples': ''
+        {"cmd": "contacts create",
+         "syntax": "`contacts create` `name*` [`phones:phone,phone`] [`email:email`] [`birthday:dd-mm-YYYY`]",
+         "description": "name - is required, all the rest parameters are optional and can be one or can be any number of it",
+         "examples": "contacts create Luck 0500000000"
          },
-        {'cmd': 'contacts change',
-         'syntax': '',
-         'description': '',
-         'examples': ''
+        {"cmd": "contacts change",
+         "syntax": "contacts change` `name*`  [`phones:phone,phone`] [`email:email`] [`birthday:dd-mm-YYYY`]",
+         "description": "same idea as create - name is required and others are the parameters you want to change",
+         "examples": "contacts change Luck 0501111111 luck@skywalker.com"
          },
-        {'cmd': 'contacts delete',
-         'syntax': 'contacts delete <name>',
+        {"cmd": "contacts delete",
+         "syntax": "contacts delete <name>",
          'description': 'This command deletes the specified contact',
          'examples': 'contacts delete name'
          },
@@ -29,15 +29,15 @@ def o_help_cmd(cmd):
          'description': "this command shows the content of the contact book (fields name, phone number, remark)",
          'examples': "contacts show all"
          },
-        {'cmd': "contacts show",
-         'syntax': "contacts filter by tag <name>, useы only one name, shows all the matches",
-         'description': "This command searches and displays contacts filtered by birthdays in the next few days",
-         'examples': "contacts show Dmitry"
+        {"cmd": "contacts show",
+         "syntax": "contacts filter by tag <name>, use only one name, shows all the matches",
+         "description": "This command searches and displays contacts filtered by birthdays in the next few days",
+         "examples": "contacts show Dmitry"
          },
-        {'cmd': "contacts show birthdays",
-         'syntax': "contacts show birthdays <range> days",
-         'description': "filters the contact book by birthdays in the next few days",
-         'examples': "contacts show birthdays 7 days"
+        {"cmd": "contacts show birthdays",
+         "syntax": "contacts show birthdays <range> days",
+         "description": "filters the contact book by birthdays in the next few days",
+         "examples": "contacts show birthdays 7 days"
          },
         {'cmd': 'notes create',
          'syntax': 'notes create <title> / <body>',
@@ -74,15 +74,15 @@ def o_help_cmd(cmd):
          'description': 'Information about app',  # Explanation what this command does
          'examples': 'about'  # examples of command usage
          },
-        {'cmd': 'hello',
-         'syntax': '',
-         'description': '',
-         'examples': ''
+        {"cmd": "hello",
+         "syntax": "command does not require any additional parameters, it is used as is",
+         "description": "some funny greating",
+         "examples": "hello"
          },
-        {'cmd': 'help',
-         'syntax': '',
-         'description': '',
-         'examples': ''
+        {"cmd": "help",
+         "syntax": "command does not require any additional parameters, it is used as is",
+         "description": "description of all bot commands functioning in the program",
+         "examples": "help"
          },
         {'cmd': 'war statistics',  # name of command. I will use this field for search
          'syntax': 'war statistics today/war statistics mm-dd-yyyy',  # how to call command properly
