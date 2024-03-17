@@ -1,1 +1,52 @@
-[{"name": "Romka", "birthday": "", "address": "Seoler scala", "phones": [], "remark": "", "email": ""}]
+[
+    {
+        "name": "TheoQuill",
+        "birthday": "23-03-1963",
+        "address": "Gallifrey Outskirts, Near the Untempered Schism",
+        "phones": [
+            "9876543210"
+        ],
+        "remark": "Renegade Time Lord with a penchant for earth artifacts",
+        "email": "quill@tardismail.com"
+    },
+    {
+        "name": "AxelSong",
+        "birthday": "28-03-1995",
+        "address": "Library of Alexandria, Parallel Timeline",
+        "phones": [
+            "1234567890"
+        ],
+        "remark": "Archaeologist with knowledge of the Doctor's future",
+        "email": "ann@fjfkfkf.com"
+    },
+    {
+        "name": "Mik The Silent",
+        "birthday": "30-03-1862",
+        "address": "Silence Monastery, Lunar Base",
+        "phones": [
+            "0000000000"
+        ],
+        "remark": "Member of the Order of the Silence, beware of forgetting",
+        "email": "silence@nowhere.com"
+    },
+    {
+        "name": "RoryPond",
+        "birthday": "17-08-1988",
+        "address": "Leadworth, 21st Century Earth",
+        "phones": [
+            "1122334455"
+        ],
+        "remark": "The Last Centurion, guardian of the Pandorica",
+        "email": "rory@centurionmail.com"
+    },
+    {
+        "name": "RiverArch",
+        "birthday": "31-12-5123",
+        "address": "Stormcage Containment Facility, 52nd Century",
+        "phones": [
+            "9988776655"
+        ],
+        "remark": "Time-traveling archaeologist and the Doctor's spouse",
+        "email": "river.song@tardis.net"
+    }
+]

@@ -29,7 +29,7 @@ def n_show_cmd(cmd):
 
         elif len(pattern) > 0:
             for note in notes.data:
-                if pattern.lower() == note.title.lower():
+                if pattern == note.title:
 
                     note_found = True
                     print(f"{tardis_label}", end='')
