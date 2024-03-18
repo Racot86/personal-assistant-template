@@ -10,6 +10,6 @@ def o_hello_cmd(cmd):
     if 18 <= time.hour <= 23: time_of_day = 'evening'
 
     a_print(f"Good {time_of_day}, Doctor! How are you doing today?",
-            prefix='TARDIS: ',
+            prefix=Settings.TARDIS,
             main_color=Settings.msg_color,
             )

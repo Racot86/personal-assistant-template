@@ -7,17 +7,17 @@ def o_help_cmd(cmd):
         {"cmd": "contacts create",
          "syntax": "`contacts create` `name*` [`phones:phone,phone`] [`email:email`] [`birthday:dd-mm-YYYY`]",
          "description": "name - is required, all the rest parameters are optional and can be one or can be any number of it",
-         "examples": "contacts create Luck 0500000000"
+         "examples": "contacts create Luck phone:0500000000, contacts create Luck email:example@gmail.com phone:0500000000"
          },
         {"cmd": "contacts change",
-         "syntax": "contacts change` `name*`  [`phones:phone,phone`] [`email:email`] [`birthday:dd-mm-YYYY`]",
+         "syntax": "contacts change` `name`",
          "description": "same idea as create - name is required and others are the parameters you want to change",
-         "examples": "contacts change Luck 0501111111 luck@skywalker.com"
+         "examples": "contacts change Luck"
          },
         {"cmd": "contacts delete",
          "syntax": "contacts delete <name>",
          'description': 'This command deletes the specified contact',
-         'examples': 'contacts delete name'
+         'examples': 'contacts delete TestContact'
          },
         {'cmd': 'contacts search',
          'syntax': 'contacts search <name> / contacts search <phone> / contacts search <email>',
@@ -30,41 +30,41 @@ def o_help_cmd(cmd):
          'examples': "contacts show all"
          },
         {"cmd": "contacts show",
-         "syntax": "contacts filter by tag <name>, use only one name, shows all the matches",
-         "description": "This command searches and displays contacts filtered by birthdays in the next few days",
-         "examples": "contacts show Dmitry"
+         "syntax": "contacts show <name>",
+         "description": "Shows data of the contact",
+         "examples": "contacts show Dmytro"
          },
         {"cmd": "contacts show birthdays",
          "syntax": "contacts show birthdays <range> days",
-         "description": "filters the contact book by birthdays in the next few days",
+         "description": "show birthdays of the contacts matching <range> days",
          "examples": "contacts show birthdays 7 days"
          },
         {'cmd': 'notes create',
-         'syntax': 'notes create <title> / <body>',
+         'syntax': 'notes create <title>',
          'description': 'add note to note book',
-         'examples': 'notes create <title: borscht> / <body:Ukrainian Borscht everyone knows'
+         'examples': 'notes create borscht'
          },
         {'cmd': 'notes change',
-         'syntax': 'notes change <title> / <body>',
+         'syntax': 'notes change <title>',
          'description': 'changes note',
-         'examples': 'notes change <title: borscht>  enter new title:<new_title>  enter new body:<new_body>'
+         'examples': 'notes change borscht'
          },
         {'cmd': 'notes delete',
          'syntax': 'notes delete <title>',
          'description': 'delete note from note book',
-         'examples': 'notes delete <title:borscht>'
+         'examples': 'notes delete borscht'
          },
         {'cmd': 'notes search',
          'syntax': 'notes search, notes search <title>, notes search <body>',
          'description': 'search note in note book',
-         'examples': 'notes search, notes search <egg>'
+         'examples': 'notes search, notes search egg'
          },
         {'cmd': 'notes show',
          'syntax': 'notes show, notes show <title>',
          'description': 'show note from note book',
          'examples': 'notes show, notes show cooking instruction'
          },
-         {'cmd': 'notes filter by tag',
+        {'cmd': 'notes filter by tag',
          'syntax': 'notes filter by tag <insert any number of tags with # and space between>',
          'description': 'This command searches and displays notes filtered by given tags',
          'examples': 'notes filter by tag #test, notes filter by tag #test #dummy'
@@ -88,15 +88,20 @@ def o_help_cmd(cmd):
          'syntax': 'war statistics today/war statistics mm-dd-yyyy',  # how to call command properly
          'description': 'Get statistics about war in Ukraine',  # Explanation what this command does
          'examples': 'war statistics today, war statistics 14-03-2022'  # examples of command usage
+         },
+        {'cmd': 'exit',  # name of command. I will use this field for search
+         'syntax': 'exit, end, quit',  # how to call command properly
+         'description': 'exits application',  # Explanation what this command does
+         'examples': 'exit, end, quit'  # examples of command usage
          }
     ]
 
     if len(cmd) == 1:
-        a_print('Doctor, please find below list of commands which I currently know', prefix='TARDIS: ',
+        a_print('Doctor, please find below list of commands which I currently know', prefix=Settings.TARDIS,
                 main_color=Settings.msg_color)
         for itm in help_list:
+            print()
             print(f'  {Settings.notes_color}Command name: {Settings.end_all}' + itm['cmd'])
             print(f'  {Settings.notes_color}Syntax: {Settings.end_all}' + itm['syntax'])
             print(f'  {Settings.notes_color}Description: {Settings.end_all}' + itm['description'])
             print(f'  {Settings.notes_color}Examples: {Settings.end_all}' + itm['examples'])
-            print()

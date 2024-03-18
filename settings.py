@@ -10,7 +10,7 @@ class Settings:
 
 # input_color, msg_color, warning_color, error_color
     style_bold = Style.BRIGHT # Some bolder text
-    msg_color = Fore.CYAN # regular bot message
+    msg_color = Fore.LIGHTCYAN_EX # regular bot message
     input_color = Fore.CYAN # user input color
     warning_color = Fore.LIGHTYELLOW_EX # warning bot message
     error_color = Fore.LIGHTRED_EX # error bot message
@@ -28,8 +28,8 @@ class Settings:
     NOTES_BODY_DELAY = 0.03
 
 # prompt colors
-    PROMPT_TEXT_COLOR = 'ansiblue'
-    PROMPT_INPUT_COLOR = 'ansigray'
+    PROMPT_TEXT_COLOR = "#146C94"
+    PROMPT_INPUT_COLOR = "white"
     PROMPT_NOTE_COLOR = 'ansiyellow'
     PROMPT_TARDIS_COLOR = 'ansiwhite'
 
