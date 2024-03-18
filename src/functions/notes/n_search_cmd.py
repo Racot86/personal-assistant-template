@@ -16,12 +16,12 @@ def n_search_cmd(cmd):
     if found_notes:
         tardis_label = Settings.TARDIS
         tardis_text = """
-         Decode the notes,
-|-----|  Doctor, I
-|II|II|  hear the echoes
-|II|II|  of distant galaxies...
-|II|II|  Our calculations suggest,
-|II|II|  ... the enemy's spaceship is near!
+           Decode the notes,
+  |-----|  Doctor, I
+  |II|II|  hear the echoes
+  |II|II|  of distant galaxies...
+  |II|II|  Our calculations suggest,
+  |II|II|  ... the enemy's spaceship is near!
 
 """
         print(f"{tardis_label}", end='')
@@ -29,16 +29,20 @@ def n_search_cmd(cmd):
         time.sleep(Settings.NOTES_INTRO_DELAY)
 
         for idx, note in found_notes:
-            print(f"{Settings.shadow_color}ID:{Settings.end_all} {idx}")
+            print(f"  {Settings.shadow_color}ID:{Settings.end_all} {idx}")
             time.sleep(Settings.NOTES_TITLE_DELAY)
             
-            print(f"{Settings.shadow_color}Title:{Settings.end_all} {note.title}")
+            print(f"  {Settings.shadow_color}Title:{Settings.end_all} {note.title}")
             time.sleep(Settings.NOTES_TITLE_DELAY)
 
             note_body = f"{Settings.shadow_color}Body:{Settings.end_all}\n{Settings.notes_color}\n{note.body}\n{Settings.end_color}\n"
+            print('  ', end='')
             for char in note_body:
+                if char == '\n':
+                    char = '\n  '
                 print(char, end='', flush=True)
                 time.sleep(Settings.NOTES_BODY_DELAY)
+            print('\r',end='')
 
     else:
         a_print(f"Currently adrift in silence, my archives yield no tales.", prefix = Settings.TARDIS, main_color=Settings.error_color)

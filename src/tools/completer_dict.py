@@ -8,7 +8,8 @@ def completer():
                      'delete': None,
                      'show': {'all': None,
                               'birthdays': None
-                              }
+                              },
+                     'search': None
                      },
         'notes': {'create': None,
                   'change': None,

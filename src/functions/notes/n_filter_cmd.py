@@ -9,10 +9,13 @@ from settings import Settings
 def print_list(match, search_criteria):
     if len(match) > 0:
         a_print('This is what I found for ' + ' '.join(search_criteria), main_color=Settings.msg_color,
-                prefix='TARDIS: ')
+                prefix=Settings.TARDIS)
         for itm in match:
-            a_print(f"  '{itm}' present in <{'> <'.join(match[itm])}> note(s)")
-
+            if match[itm] != []:
+                a_print(f"  {Settings.msg_color}{itm}{Settings.shadow_color} present in {Settings.end_all + Settings.msg_color}<{'> <'.join(match[itm])}>{Settings.shadow_color} note(s){Settings.end_all}",
+                        used_colors=[Settings.msg_color,Settings.shadow_color,Settings.end_all])
+            else:
+                a_print(f"  '{itm}' not found at the current time flow", main_color=Settings.shadow_color + Settings.msg_color)
     else:
         a_print(f'Sir, there are no matches for your request', prefix='TARDIS: ', main_color=Settings.warning_color)
 

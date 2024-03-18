@@ -1,7 +1,7 @@
 # importing standard & custom modules
 from prompt_toolkit import prompt
 from settings import Settings
-
+import sys
 import os
 # importing contacts controller function
 from src.functions.command_controllers.process_contacts_command import process_contacts_command
@@ -9,19 +9,21 @@ from src.functions.command_controllers.process_contacts_command import process_c
 from src.functions.command_controllers.process_notes_command import process_notes_command
 # importing others controller function
 from src.functions.command_controllers.process_others_commans import process_others_command
-from src.functions.others.intro import intro
 # importing tools
-from src.tools.StorageController import StorageController
+from src.functions.others.intro import intro
 from src.tools.a_print import a_print
 from prompt_toolkit.styles import Style
 from src.tools.completer_dict import completer
 from src.tools.cls import cls
-from src.tools.print_at import print_at
+from src.tools.tool_bar import tool_bar
 
 # defining variables
 move_ln_up = '\033[F'
-
-style = Style.from_dict({'': Settings.PROMPT_TEXT_COLOR, 'prompt': Settings.PROMPT_TEXT_COLOR})
+defstyle = sys.modules['prompt_toolkit.styles.defaults']
+defstyle.PROMPT_TOOLKIT_STYLE.append(('completion-menu', 'bg:white fg:#146C94 reverse'))
+defstyle.PROMPT_TOOLKIT_STYLE.append(("completion-menu.completion.current", 'bg:white fg:#146C94'))
+defstyle.PROMPT_TOOLKIT_STYLE.append(('completion-menu.completion', 'bg:#146C94 fg:#F6F1F1'))
+style = Style.from_dict({'prompt': Settings.PROMPT_TEXT_COLOR})
 
 
 def parse_cmd(cmd):
@@ -32,11 +34,15 @@ def parse_cmd(cmd):
 
 
 intro()
-
-
-a_print(f'If you forget something, ask me using help command.',
+tool_bar()
+a_print(f'Doctor, Hi! I am at your service.',
         used_colors=[Settings.msg_color],
         prefix=Settings.TARDIS,
+        main_color=Settings.msg_color,
+        )
+a_print(f'If you forget something, ask me using help command.',
+        used_colors=[Settings.msg_color],
+        prefix='        ',
         main_color=Settings.msg_color,
         )
 
@@ -46,7 +52,6 @@ def main():
         term_width = os.get_terminal_size().columns
         term_height = os.get_terminal_size().lines
         if term_width > 80:
-            # print(f"terminal window size: {term_width}x{term_height}")
             cmd = parse_cmd(prompt('Enter your command: ', style=style, completer=completer()))
             print(move_ln_up, end='')
             print(" " * term_width, end='\r')

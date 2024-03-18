@@ -21,7 +21,7 @@ def print_statistics(data):
 
     print('  resource: {:12}'.format(data['resource']))
     print('')
-    a_print('GLORY TO UKRAINE!', prefix='TARDIS: ',
+    a_print('GLORY TO UKRAINE!', prefix=Settings.TARDIS,
             main_color=Settings.msg_color,
             )
     print()
@@ -35,7 +35,7 @@ def o_war_cmd(cmd):
             x = requests.get(url)
             if x.status_code == 200:
                 a_print('Look what I found to your request!',
-                        prefix='TARDIS: ',
+                        prefix=Settings.TARDIS,
                         main_color=Settings.msg_color,
                         used_colors=[Settings.msg_color]
                         )
