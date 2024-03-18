@@ -1,12 +1,21 @@
-from setuptools import setup, find_packages
+from setuptools import setup, find_namespace_packages
 
-setup(name='tardis',
-      version='1.0',
-      description='AI TARDIS Assistant',
-      url='https://github.com/Racot86/project-TimeLords12',
-      author='Team Project',
-      license='MIT',
-      packages=find_packages(),
-      entry_points={'console_scripts': ['tardis = .main:main']},
-      install_requires=['colorama', 'prompt_toolkit', 'requests'],
+setup(
+    name="tardis",
+    version="6",
+    description="TARDIS personal assistant",
+    long_description='',
+    url="",
+    author="TimeLords",
+    author_email="",
+    license="MIT",
+    packages=find_namespace_packages(),
+    install_requires=[
+        "prompt-toolkit",
+        'colorama',
+        'requests'
+    ],
+    entry_points={"console_scripts": ["tardis = bot.main:main"]},
+    include_package_data=True,
+    package_data={"": ["*.txt"]}
 )
