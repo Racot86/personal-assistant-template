@@ -37,7 +37,8 @@ def n_change_cmd(cmd):
         print('')
         print(f"  {Settings.shadow_color}Time: {Settings.end_all}{note.time}")
         print(f"  {Settings.shadow_color}Title: {Settings.end_all}{note.title}")
-        print(f"  {Settings.shadow_color}Body:{Settings.end_all}\n{Settings.notes_color}\n  {new_text.replace('\n','\n  ')}\n{Settings.end_color}\n")
+        body_text = new_text.replace('\n', '\n  ')
+        print(f"  {Settings.shadow_color}Body:{Settings.end_all}\n{Settings.notes_color}\n  {body_text}\n{Settings.end_color}\n")
         a_print("Note updated successfully!!", prefix = Settings.TARDIS, main_color=Settings.success_color)
         storage.save_note_book(notes)
         

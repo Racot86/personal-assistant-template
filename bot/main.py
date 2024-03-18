@@ -65,7 +65,7 @@ def main():
                     process_notes_command(cmd)
                 case _:
                     if cmd[0] in ['exit', 'end', 'quit']:
-                        break
+                        exit()
                     else:
                         process_others_command(cmd)
         else:
@@ -74,7 +74,6 @@ def main():
             print('      POOR CONNECTION')
             print('URGENTLY CHANGE TERMINAL SIZE')
 
-main()
 if __name__ == '__main__':
     main()
 

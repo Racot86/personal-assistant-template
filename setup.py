@@ -15,7 +15,7 @@ setup(
         'colorama',
         'requests'
     ],
-    entry_points={"console_scripts": ["tardis = bot:main"]},
+    entry_points={"console_scripts": ["tardis = bot.main:main"]},
     include_package_data=True,
     package_data={"": ["*.txt"]}
 )
